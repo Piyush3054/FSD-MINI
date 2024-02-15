@@ -84,10 +84,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
 
-        String token = JwtUtils.generateToken(loginRequest);
-
-
-
+        String token = JwtUtils.generateUserToken(loginRequest);
 
         Map<String, String> response = new HashMap<>();
         response.put("token", token);
