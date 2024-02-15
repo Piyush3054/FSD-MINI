@@ -58,6 +58,7 @@ const Login = () => {
                     <input type="password" name="password" value={credentials.password} onChange={handleChange} />
                 </label>
                 <button type="submit">Login</button>
+                <div> don't have account ? <button onClick={() => {navigate("/signup")}}>Sign UP</button></div>
             </form>
         </div>
     );
