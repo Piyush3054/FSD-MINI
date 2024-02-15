@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import ItemList from './components/ItemList';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import AddItem from './components/AddItem';
-import Welcome from "./components/Welcome";
 import DefaultPage from "./components/DefaultPage";
-import MyItems from "./components/MyItems";
 import Admin from "./components/Admin";
 
 const App = () => {
