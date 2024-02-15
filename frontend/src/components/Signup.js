@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import '../styles/Signup.css';
+import {useNavigate} from "react-router-dom";
 
 const Signup = () => {
+    const navigate = useNavigate();
     const [user, setUser] = useState({
         username: '',
         email: '',
@@ -40,6 +42,7 @@ const Signup = () => {
                 // Handle success
                 const responseData = await response.json();
                 console.log(responseData.data);
+                navigate("/login");
             } else {
                 // Handle error
                 const errorData = await response.json();
