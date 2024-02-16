@@ -1,0 +1,10 @@
+.welcome-container{
+    background-color:#333333;
+    /*padding: px;*/
+    color:white;
+}
+nav button{
+    margin-left: 3vw;
+    cursor: pointer;
+
+}

@@ -38,7 +38,7 @@ const Admin = () => {
                 const [username, expirationTimestamp] = token.split('|');
 
                 console.log('Username:', username);
-                navigate("/");
+                navigate("/adminWelcome");
             }
         } catch (error) {
             console.error('Error during login:', error.message);

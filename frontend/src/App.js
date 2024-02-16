@@ -4,6 +4,9 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import DefaultPage from "./components/DefaultPage";
 import Admin from "./components/Admin";
+import Welcome from "./components/Welcome";
+import AdminWelcome from "./components/AdminWelcome";
+import './App.css'
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -18,18 +21,22 @@ const App = () => {
   };
 
   return (
-      <Router>
+      <div className="App">
+          <>
+              <AdminWelcome />
+          </>
+          {/*<Router>*/}
+          {/*    <Routes>*/}
+          {/*        <Route path="/signup" element={<Signup setUser={setUser} />} />*/}
+          {/*        <Route path="/" element={<DefaultPage />} />*/}
+          {/*        <Route path="/login" element={<Login setUser={setUser} />} />*/}
+          {/*        <Route path="/admin" element={<Admin setUser={setUser} />} />*/}
+          {/*        <Route path="/adminWelcome" element={<AdminWelcome />} />*/}
+          {/*        <Route path="/welcome" element={<Welcome />} />*/}
+          {/*    </Routes>*/}
+          {/*</Router>*/}
+      </div>
 
-
-          <Routes>
-            <Route path="/signup" element={<Signup setUser={setUser} />} />
-            <Route path="/" element={<DefaultPage />} />
-            <Route path="/login" element={<Login setUser={setUser} />} />
-            <Route path="/admin" element={<Admin setUser={setUser} />} />
-
-          </Routes>
-
-      </Router>
   );
 };
 
