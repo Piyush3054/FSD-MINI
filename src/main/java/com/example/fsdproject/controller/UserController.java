@@ -1,7 +1,5 @@
 package com.example.fsdproject.controller;
 
-// UserController.java
-
 import com.example.fsdproject.entity.User;
 import com.example.fsdproject.repository.UserRepository;
 import com.example.fsdproject.security.JwtUtils;
@@ -15,28 +13,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 
-
-
-
-
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/users")
 public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-
     @Autowired
     private UserService userService;
-
-
-
-    @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping("/hello")
-    public String getHello() {
-        return "Hello from the server!";
-    }
-
 
     @PostMapping("/signup")
     public ResponseEntity<?> signUp(@RequestBody User user) {
@@ -50,11 +34,7 @@ public class UserController {
                 response.put("error", "Username or email already registered");
                 return ResponseEntity.badRequest().body(response);
             }
-
             userService.saveUser(user);
-
-
-
             Map<String, String> response = new HashMap<>();
             response.put("data", "User registered successfully");
             return ResponseEntity.ok(response);
@@ -65,10 +45,6 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
-
-
-
-
 
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/login")
@@ -85,7 +61,6 @@ public class UserController {
         }
 
         String token = JwtUtils.generateUserToken(loginRequest);
-
         Map<String, String> response = new HashMap<>();
         response.put("token", token);
         response.put("message", "Login successful");

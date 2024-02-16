@@ -12,7 +12,6 @@ export default function CreateQueue(){
         setData({...data,[e.target.name]:e.target.value});
     };
     const handleQueueData = async (e) => {
-        e.preventDefault();
 
         try{
             const res = await fetch('http://localhost:8080/api/createqueue',{
@@ -22,21 +21,28 @@ export default function CreateQueue(){
                 },
                 body:JSON.stringify(data),
             });
+            if (res.ok) {
+                // Handle success
+                const responseData = await res.json();
+                console.log(responseData.data);
+            }
         }
         catch (error) {
             // Handle network errors or other exceptions
             console.error('Error during :', error.message);
         }
-    }
+    };
     return (
         <div className='createqueue-container'>
-            <h1>Queue Name</h1>
-            <input type="text" name="queueName" value={data.QueueName} onChange={handleChange}/>
-            <h1>Queue Size</h1>
-            <input type="Number" name="queueCapacity" value={data.QueueCapacity} onChange={handleChange}/>
-            <h1>Service Type</h1>
-            <input type="text" name="queueService" value={data.QueueService} onChange={handleChange}/>
-            <button></button>
+            <form onSubmit={handleQueueData}>
+                <h1>Queue Name</h1>
+                <input type="text" name="queueName" value={data.queueName} onChange={handleChange}/>
+                <h1>Queue Size</h1>
+                <input type="Number" name="queueCapacity" value={data.queueCapacity} onChange={handleChange}/>
+                <h1>Service Type</h1>
+                <input type="text" name="queueService" value={data.queueService} onChange={handleChange}/>
+                <button type="submit">Create</button>
+            </form>
         </div>
     );
 }
