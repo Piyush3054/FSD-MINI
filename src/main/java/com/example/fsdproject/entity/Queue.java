@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "queue_table")
 public class Queue {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long QueueId;
