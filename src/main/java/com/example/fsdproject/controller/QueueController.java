@@ -4,6 +4,9 @@ import com.example.fsdproject.entity.Queue;
 import com.example.fsdproject.entity.User;
 import com.example.fsdproject.service.QueueService;
 import com.example.fsdproject.service.UserService;
+import io.micrometer.observation.GlobalObservationConvention;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +20,8 @@ import java.util.Map;
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api")
 public class QueueController {
+
+    private static final Logger logger = LoggerFactory.getLogger(QueueController.class);
 
     @Autowired
     private QueueService queueService;
@@ -47,21 +52,45 @@ public class QueueController {
         return ResponseEntity.ok(queues);
     }
 
-    @PostMapping("/{queueId}/users")
-    public ResponseEntity<?> addUserToQueue(@PathVariable Long queueId, @RequestBody User user) {
-        try {
-            Queue queue = queueService.findQueueById(queueId);
-            if (queue == null) {
-                return ResponseEntity.notFound().build();
-            }
-            queueService.addUserToQueue(queue, user);
-            return ResponseEntity.ok("User added to queue successfully");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error adding user to queue");
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/getuser/{userName}")
+    public ResponseEntity<User> getUser(@PathVariable String userName){
+        logger.info(userName);
+        User user = userService.findByUsername(userName);
+        logger.info(user.getUsername());
+
+        if(user != null)
+        {
+            return ResponseEntity.ok(user);
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
 
-    @DeleteMapping("/{queueId}/users/admin/{userId}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/queues/{queueId}/{userId}/adduser")
+    public ResponseEntity<?> addUserToQueue(@PathVariable Long queueId, @PathVariable Long userId) {
+        try {
+            Queue queue = queueService.findQueueById(queueId);
+            User user = userService.findUserById(userId);
+            if (queue == null || user == null) {
+                Map<String, String> response = new HashMap<>();
+                response.put("error", "Queue Or User Not found");
+                return ResponseEntity.badRequest().body(response);
+            }
+            queueService.addUserToQueue(queue, user);
+            Map<String, String> response = new HashMap<>();
+            response.put("data", "User Added Successfully");
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            Map<String, String> response = new HashMap<>();
+            response.put("error", "Queue is full");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
+
+    @DeleteMapping("/queues/{queueId}/users/admin/{userId}")
     public ResponseEntity<?> removeUserAndReorder(@PathVariable Long queueId, @PathVariable Long userId) {
         try {
             Queue queue = queueService.findQueueById(queueId);

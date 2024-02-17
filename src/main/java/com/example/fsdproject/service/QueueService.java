@@ -36,7 +36,6 @@ public class QueueService {
             QueueWithUsers queueWithUsers = new QueueWithUsers(queue, user);
             queueWithUsersRepository.save(queueWithUsers);
         } else {
-            // Queue is full, handle accordingly (e.g., throw an exception)
             throw new RuntimeException("Queue is full");
         }
     }
