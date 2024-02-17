@@ -1,13 +1,16 @@
 package com.example.fsdproject.controller;
 
 import com.example.fsdproject.entity.Admin;
+import com.example.fsdproject.entity.QueueWithUsers;
 import com.example.fsdproject.security.JwtUtils;
 import com.example.fsdproject.service.AdminService;
+import com.example.fsdproject.service.QueueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -35,5 +38,15 @@ public class AdminController {
             response.put("error", "Invalid username or password");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
+    }
+
+    @Autowired
+    private QueueService queueService;
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/admin/queues")
+    public ResponseEntity<List<QueueWithUsers>> getQueuesWithAssignedUsers() {
+        List<QueueWithUsers> queuesWithUsers = queueService.getQueuesWithAssignedUsers();
+        return ResponseEntity.ok(queuesWithUsers);
     }
 }

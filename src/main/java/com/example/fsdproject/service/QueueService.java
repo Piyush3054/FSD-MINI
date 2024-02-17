@@ -72,4 +72,8 @@ public class QueueService {
             }
         }
     }
+
+    public List<QueueWithUsers> getQueuesWithAssignedUsers() {
+        return queueWithUsersRepository.findAll();
+    }
 }
