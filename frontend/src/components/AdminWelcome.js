@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/welcome.css';
 import CreateQueue from "./CreateQueue";
 import Home from "./Home";
+import AdminHome from "./AdminHome";
 
 export default function Welcome(){
     const [show,setShow] = useState("1");
@@ -16,7 +17,7 @@ export default function Welcome(){
             </nav>
 
         </div>
-    {show === "1" && <Home />}
+    {show === "1" && <AdminHome  />}
     {show === "2" && <CreateQueue />}</div>
     );
 }
