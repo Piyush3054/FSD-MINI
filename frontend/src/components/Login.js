@@ -36,8 +36,6 @@ const Login = () => {
                 const { token } = responseData;
                 sessionStorage.setItem('token', token);
                 const [username, expirationTimestamp] = token.split('|');
-
-                console.log('Username:', username);
                 navigate("/welcome");
             }
         } catch (error) {

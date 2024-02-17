@@ -1,3 +1,7 @@
 .queuelist-container{
-    margin-top: 25vh;
+    margin-top: 15vh;
+}
+.list-container{
+    display: flex;
+    margin-bottom: 2vh;
 }

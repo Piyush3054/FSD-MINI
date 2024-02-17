@@ -22,19 +22,16 @@ const App = () => {
 
   return (
       <div className="App">
-          <>
-              <Welcome />
-          </>
-          {/*<Router>*/}
-          {/*    <Routes>*/}
-          {/*        <Route path="/signup" element={<Signup setUser={setUser} />} />*/}
-          {/*        <Route path="/" element={<DefaultPage />} />*/}
-          {/*        <Route path="/login" element={<Login setUser={setUser} />} />*/}
-          {/*        <Route path="/admin" element={<Admin setUser={setUser} />} />*/}
-          {/*        <Route path="/adminWelcome" element={<AdminWelcome />} />*/}
-          {/*        <Route path="/welcome" element={<Welcome />} />*/}
-          {/*    </Routes>*/}
-          {/*</Router>*/}
+          <Router>
+              <Routes>
+                  <Route path="/signup" element={<Signup setUser={setUser} />} />
+                  <Route path="/" element={<DefaultPage />} />
+                  <Route path="/login" element={<Login setUser={setUser} />} />
+                  <Route path="/admin" element={<Admin setUser={setUser} />} />
+                  <Route path="/adminWelcome" element={<AdminWelcome />} />
+                  <Route path="/welcome" element={<Welcome />} />
+              </Routes>
+          </Router>
       </div>
 
   );

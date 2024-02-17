@@ -39,18 +39,15 @@ const Signup = () => {
             console.log(response.data);
 
             if (response.ok) {
-                // Handle success
                 const responseData = await response.json();
                 console.log(responseData.data);
                 navigate("/login");
             } else {
-                // Handle error
                 const errorData = await response.json();
                 console.error('Error during signup:', errorData.error);
             }
 
         } catch (error) {
-            // Handle network errors or other exceptions
             console.error('Error during signup:', error.message);
         }
     };
