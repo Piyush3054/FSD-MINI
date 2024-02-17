@@ -65,7 +65,6 @@ public class QueueWithUsers {
         this.position = position;
     }
 
-    // Methods to manipulate position
     public void incrementPosition() {
         this.position++;
     }
@@ -74,6 +73,4 @@ public class QueueWithUsers {
         this.position--;
     }
 
-    // Equals and hashCode methods for comparison
-    // You might want to override these methods based on your requirements
 }

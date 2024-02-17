@@ -2,10 +2,17 @@ package com.example.fsdproject.repository;
 
 import com.example.fsdproject.entity.Queue;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 public interface QueueRepository extends JpaRepository<Queue,Long> {
 
     Queue findByQueueName(String queueName);
 
     Queue findByQueueService(String queueService);
+
+    @Query("SELECT q FROM Queue q WHERE q.QueueId IN (SELECT qwu.queue.QueueId FROM QueueWithUsers qwu WHERE qwu.user.id = :userId)")
+    List<Queue> findQueuesByUserId(@Param("userId") Long userId);
 }

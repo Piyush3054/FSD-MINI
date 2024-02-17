@@ -1,6 +1,7 @@
 package com.example.fsdproject.controller;
 
 import com.example.fsdproject.entity.Queue;
+import com.example.fsdproject.entity.QueueWithUsers;
 import com.example.fsdproject.entity.User;
 import com.example.fsdproject.service.QueueService;
 import com.example.fsdproject.service.UserService;
@@ -51,6 +52,13 @@ public class QueueController {
         List<Queue> queues = queueService.getAllQueues();
         return ResponseEntity.ok(queues);
     }
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/queues/{userId}/participant")
+    public ResponseEntity<List<Queue>> getAllQueuesByUser(@PathVariable Long userId) {
+        List<Queue> queues = queueService.getAllQueuesByUser(userId);
+        return ResponseEntity.ok(queues);
+    }
+
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/getuser/{userName}")
@@ -85,7 +93,7 @@ public class QueueController {
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             Map<String, String> response = new HashMap<>();
-            response.put("error", "Queue is full");
+            response.put("error", e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
