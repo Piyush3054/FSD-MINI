@@ -99,7 +99,7 @@ const AdminHome = () => {
         <div className="">
             <h2>Queues with Assigned Users</h2>
             {Object.entries(groupedQueues).map(([queueId, users]) => (
-                <div key={queueId}>
+                <div key={queueId} className="user-container">
                     <h3>Queue-{queueId}</h3>
                     {users.map(user => (
                         <div key={user.id} style={{display:"flex"}}>
