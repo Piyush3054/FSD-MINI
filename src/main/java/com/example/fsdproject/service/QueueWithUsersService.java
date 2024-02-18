@@ -4,6 +4,7 @@ import com.example.fsdproject.entity.Queue;
 import com.example.fsdproject.entity.User;
 import com.example.fsdproject.entity.QueueWithUsers;
 import com.example.fsdproject.repository.QueueWithUsersRepository;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +20,9 @@ public class QueueWithUsersService {
         return queueWithUsersRepository.findByQueue(queue);
     }
 
-    // Add more methods as needed
+    public List<QueueWithUsers> getQueuesWithAssignedUsers() {
+        List<QueueWithUsers> queuesWithUsers = queueWithUsersRepository.getALL();
+
+        return queuesWithUsers;
+    }
 }

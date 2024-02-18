@@ -5,6 +5,7 @@ import com.example.fsdproject.entity.QueueWithUsers;
 import com.example.fsdproject.security.JwtUtils;
 import com.example.fsdproject.service.AdminService;
 import com.example.fsdproject.service.QueueService;
+import com.example.fsdproject.service.QueueWithUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,12 +42,22 @@ public class AdminController {
     }
 
     @Autowired
-    private QueueService queueService;
+    private QueueWithUsersService queueWithUsersService;
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping("/admin/queues")
+    @GetMapping("/abed/admin/queues")
     public ResponseEntity<List<QueueWithUsers>> getQueuesWithAssignedUsers() {
-        List<QueueWithUsers> queuesWithUsers = queueService.getQueuesWithAssignedUsers();
-        return ResponseEntity.ok(queuesWithUsers);
+        try{
+            List<QueueWithUsers> queuesWithUsers = queueWithUsersService.getQueuesWithAssignedUsers();
+            if(queuesWithUsers == null)
+                return ResponseEntity.notFound().build();
+            else
+                return ResponseEntity.ok(queuesWithUsers);
+        }
+        catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+
     }
 }
+

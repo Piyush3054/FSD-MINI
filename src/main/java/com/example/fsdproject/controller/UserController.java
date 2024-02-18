@@ -89,6 +89,21 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
+
+
+    @GetMapping("/getData/{userId}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<User> getUserDataById(@PathVariable Long userId)
+    {
+        logger.info(userId+"");
+        User user = userService.findUserById(userId);
+        if(user == null)
+        {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+
+        return ResponseEntity.ok(user);
+    }
 }
 
 
