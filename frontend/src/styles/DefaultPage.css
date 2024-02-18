@@ -6,14 +6,14 @@
     height: 100vh;
 }
 
-.login-container {
+.choose-container {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.choose-container h1{
     font-size: 2.5em;
     margin-bottom: 20px;
     color: #333;
@@ -23,7 +23,7 @@ h1 {
     margin-top: 20px;
 }
 
-button {
+.choose-container button {
     font-size: 1.2em;
     padding: 10px 20px;
     background-color: #333;
@@ -35,10 +35,10 @@ button {
     align-items: center;
 }
 
-button:hover {
+.choose-container button:hover {
     background-color: #555;
 }
 
-span {
+.choose-container span {
     margin-left: 10px;
 }

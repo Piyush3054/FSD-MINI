@@ -1,0 +1,52 @@
+.user-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.user-item:hover {
+    background-color: #f0f0f0;
+}
+
+.user-item:active {
+    transform: scale(0.98);
+}
+
+.remove-button {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.remove-button:hover {
+    background-color: #cc4c39;
+}
+
+.remove-button:active {
+    background-color: #a63a26;
+}
+.user-details {
+    display: flex;
+    align-items: center;
+}
+
+.user-details div {
+    margin-right: 10px; /* Adjust margin as needed */
+}
+
+.user-details button {
+    margin-left: 10px; /* Adjust margin as needed */
+    cursor: pointer;
+}
+/* Add additional styles and effects as needed */

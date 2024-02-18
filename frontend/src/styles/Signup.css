@@ -7,22 +7,22 @@
     text-align: center;
 }
 
-h2 {
+.signup-container h2 {
     font-size: 1.5em;
     margin-bottom: 20px;
 }
 
-form {
+.signup-container form {
     display: flex;
     flex-direction: column;
 }
 
-label {
+.signup-container label {
     margin: 10px 0;
     font-weight: bold;
 }
 
-input {
+.signup-container input {
     padding: 10px;
     margin-bottom: 12px;
     border: 1px solid #ddd;
@@ -30,7 +30,7 @@ input {
     outline: none;
 }
 
-button {
+.signup-container button {
     background-color: #3498db;
     color: #fff;
     border: none;
@@ -40,6 +40,6 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
+.signup-container button:hover {
     background-color: #2980b9;
 }

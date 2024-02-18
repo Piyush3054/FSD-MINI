@@ -8,11 +8,11 @@ import '../styles/DefaultPage.css';
 const DefaultPage = () => {
     return (
         <div className="login-page">
-            <div className="login-container">
+            <div className="choose-container">
                 <h1>Welcome to our App!</h1>
 
                 <div className="option">
-                    <Link to="/login">
+                    <Link to="/login" style={{textDecoration:"none"}}>
                         <button>
                             <span>User Login</span>
                         </button>
@@ -20,7 +20,7 @@ const DefaultPage = () => {
                 </div>
 
                 <div className="option">
-                    <Link to="/admin">
+                    <Link to="/admin" style={{textDecoration:"none"}}>
                         <button>
                             <span>Admin Login</span>
                         </button>
