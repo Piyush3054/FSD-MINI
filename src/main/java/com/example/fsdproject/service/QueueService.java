@@ -5,6 +5,7 @@ import com.example.fsdproject.entity.User;
 import com.example.fsdproject.entity.QueueWithUsers;
 import com.example.fsdproject.repository.QueueRepository;
 import com.example.fsdproject.repository.QueueWithUsersRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,25 +53,10 @@ public class QueueService {
         }
     }
 
+    @Transactional
     public void removeUserFromQueue(Queue queue, User user) {
         queueWithUsersRepository.deleteByQueueAndUser(queue, user);
     }
 
-    public void removeUserAndReorder(Queue queue, User user) {
-        List<QueueWithUsers> queueWithUsersList = queueWithUsersRepository.findByQueue(queue);
-        for (int i = 0; i < queueWithUsersList.size(); i++) {
-            QueueWithUsers queueWithUsers = queueWithUsersList.get(i);
-            if (queueWithUsers.getUser().equals(user)) {
-                queueWithUsersRepository.delete(queueWithUsers);
-                // Move users after the removed user up by one position
-                for (int j = i + 1; j < queueWithUsersList.size(); j++) {
-                    QueueWithUsers nextUser = queueWithUsersList.get(j);
-                    nextUser.setPosition(nextUser.getPosition() - 1);
-                    queueWithUsersRepository.save(nextUser);
-                }
-                break;
-            }
-        }
-    }
 
 }

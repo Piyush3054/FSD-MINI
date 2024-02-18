@@ -3,7 +3,10 @@ package com.example.fsdproject.controller;
 import com.example.fsdproject.entity.Queue;
 import com.example.fsdproject.entity.QueueWithUsers;
 import com.example.fsdproject.entity.User;
+import com.example.fsdproject.repository.QueueWithUsersRepository;
+import com.example.fsdproject.service.EmailService;
 import com.example.fsdproject.service.QueueService;
+import com.example.fsdproject.service.QueueWithUsersService;
 import com.example.fsdproject.service.UserService;
 import io.micrometer.observation.GlobalObservationConvention;
 import org.slf4j.Logger;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -28,6 +32,12 @@ public class QueueController {
     private QueueService queueService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private EmailService emailService;
+    @Autowired
+    private QueueWithUsersService queueWithUsersService;
+    @Autowired
+    private QueueWithUsersRepository queueWithUsersRepository;
 
     @PostMapping("/createqueue")
     @CrossOrigin(origins = "http://localhost:3000")
@@ -98,23 +108,29 @@ public class QueueController {
         }
     }
 
-    @DeleteMapping("/queues/{queueId}/users/admin/{userId}")
-    public ResponseEntity<?> removeUserAndReorder(@PathVariable Long queueId, @PathVariable Long userId) {
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/queues/{queueId}/{userId}/removeUser")
+    public ResponseEntity<?> removeUserFromQueue(@PathVariable Long queueId,@PathVariable Long userId)
+    {
         try {
-            Queue queue = queueService.findQueueById(queueId);
-            if (queue == null) {
-                return ResponseEntity.notFound().build();
-            }
             User user = userService.findUserById(userId);
-            if (user == null) {
-                return ResponseEntity.notFound().build();
+            Queue queue = queueService.findQueueById(queueId);
+            Optional<QueueWithUsers> existingAssociation = queueWithUsersRepository.findByQueueAndUser(queue, user);
+            if (queue == null || user == null) {
+                Map<String, String> response = new HashMap<>();
+                response.put("error", "Queue Or User Not found");
+                return ResponseEntity.badRequest().body(response);
             }
-            queueService.removeUserAndReorder(queue, user);
-            return ResponseEntity.ok("User removed from queue and reordered successfully");
+            queueService.removeUserFromQueue(queue, user);
+            String email = userService.
+            emailService.sendSimpleMessage();
+            Map<String, String> response = new HashMap<>();
+            response.put("data", "User Removed Successfully");
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error removing user and reordering queue");
+            Map<String, String> response = new HashMap<>();
+            response.put("error", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
-
-
 }
