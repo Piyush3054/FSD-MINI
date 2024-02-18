@@ -4,6 +4,7 @@ import com.example.fsdproject.entity.Queue;
 import com.example.fsdproject.entity.User;
 import com.example.fsdproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -24,6 +25,11 @@ public class UserService {
 
     public User saveUser(User user) {
         return userRepository.save(user);
+    }
+
+
+    public String getEmailByUserId(Long userId){
+        return userRepository.getEmailByUserId(userId);
     }
 
     public User findUserById(Long id) {

@@ -3,6 +3,7 @@ package com.example.fsdproject.controller;
 import com.example.fsdproject.entity.Queue;
 import com.example.fsdproject.entity.QueueWithUsers;
 import com.example.fsdproject.entity.User;
+import com.example.fsdproject.repository.QueueRepository;
 import com.example.fsdproject.repository.QueueWithUsersRepository;
 import com.example.fsdproject.service.EmailService;
 import com.example.fsdproject.service.QueueService;
@@ -38,6 +39,8 @@ public class QueueController {
     private QueueWithUsersService queueWithUsersService;
     @Autowired
     private QueueWithUsersRepository queueWithUsersRepository;
+    @Autowired
+    private QueueRepository queueRepository;
 
     @PostMapping("/createqueue")
     @CrossOrigin(origins = "http://localhost:3000")
@@ -122,8 +125,11 @@ public class QueueController {
                 return ResponseEntity.badRequest().body(response);
             }
             queueService.removeUserFromQueue(queue, user);
-            String email = userService.
-            emailService.sendSimpleMessage();
+            String email = userService.getEmailByUserId(userId);
+            String QueueName = queueRepository.getQueueNameByQueueId(queueId);
+            String Subject = "Removed From "+QueueName;
+            String Text = "You Are removed By Admin for Your Behavior";
+            emailService.sendSimpleMessage(email,Subject,Text);
             Map<String, String> response = new HashMap<>();
             response.put("data", "User Removed Successfully");
             return ResponseEntity.ok(response);

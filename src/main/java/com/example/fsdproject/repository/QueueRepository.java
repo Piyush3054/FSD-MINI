@@ -15,4 +15,7 @@ public interface QueueRepository extends JpaRepository<Queue,Long> {
 
     @Query("SELECT q FROM Queue q WHERE q.QueueId IN (SELECT qwu.queue.QueueId FROM QueueWithUsers qwu WHERE qwu.user.id = :userId)")
     List<Queue> findQueuesByUserId(@Param("userId") Long userId);
+
+    @Query("SELECT e.queueName FROM Queue e WHERE e.QueueId = :queueId")
+    String getQueueNameByQueueId(@Param("queueId") Long queueId);
 }
