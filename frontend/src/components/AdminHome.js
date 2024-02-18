@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/AdminHome.css'; // Import CSS file for styling
 
 const AdminHome = () => {
     const [queuesWithUsers, setQueuesWithUsers] = useState([]);
@@ -55,6 +54,7 @@ const AdminHome = () => {
             }));
 
             const grouped = {};
+            console.log(usersData);
             queuesWithUsers.forEach(queueWithUser => {
                 const queueId = queueWithUser.queue;
                 const userId = queueWithUser.user;
@@ -72,26 +72,44 @@ const AdminHome = () => {
         }
     };
 
+    const handleDelete = async (queueId,userId) => {
+        try{
+            const response = await fetch(`http://localhost:8080/api/queues/${queueId}/${userId}/removeUser`,{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            console.log(response.data);
+
+            if (response.ok) {
+                const responseData = await response.json();
+                console.log(responseData.data);
+            } else {
+                const errorData = await response.json();
+                console.error('Error during Delete or Remove User From Queue:', errorData.error);
+            }
+        }
+        catch (error) {
+            console.error('Error during Delete or Remove User From Queue:', error.message);
+        }
+    }
+
     return (
-        <div>
+        <div className="">
             <h2>Queues with Assigned Users</h2>
             {Object.entries(groupedQueues).map(([queueId, users]) => (
                 <div key={queueId}>
                     <h3>Queue-{queueId}</h3>
                     {users.map(user => (
-                        <div key={user.id}>
-                            <div className="user-details">
-                                <div>username: {user.username}</div>
-                                <div>email: {user.email}</div>
-                            </div>
-                            <button>Remove</button>
+                        <div key={user.id} style={{display:"flex"}}>
+                            <div>username: {user.username}, email: {user.email}</div>
+                            <div><button onClick={()=> handleDelete(queueId,user.id)}>Remove</button></div>
                         </div>
                     ))}
                 </div>
             ))}
-        </div>
-    );
-
+        </div>    );
 };
 
 export default AdminHome;
