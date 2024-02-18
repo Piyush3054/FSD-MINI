@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 const AdminHome = () => {
     const [queuesWithUsers, setQueuesWithUsers] = useState([]);
+    const [highLightColor,setHighLightColor] = useState({
+        "queueId":null,
+        "userId":null,
+    });
     const [groupedQueues, setGroupedQueues] = useState({}); // Initialize as state
 
     useEffect(() => {
@@ -67,6 +71,7 @@ const AdminHome = () => {
                 }
             });
             setGroupedQueues(grouped);
+            console.log(grouped);
         } catch (error) {
             console.error('Error grouping queues with users:', error);
         }
@@ -85,10 +90,13 @@ const AdminHome = () => {
             if (response.ok) {
                 const responseData = await response.json();
                 console.log(responseData.data);
+                setHighLightColor({ queueId, userId });
             } else {
                 const errorData = await response.json();
                 console.error('Error during Delete or Remove User From Queue:', errorData.error);
             }
+
+
         }
         catch (error) {
             console.error('Error during Delete or Remove User From Queue:', error.message);
@@ -96,20 +104,30 @@ const AdminHome = () => {
     }
 
     return (
-        <div className="">
+        <div>
             <h2>Queues with Assigned Users</h2>
             {Object.entries(groupedQueues).map(([queueId, users]) => (
-                <div key={queueId} className="user-container">
+                <div key={queueId}>
                     <h3>Queue-{queueId}</h3>
                     {users.map(user => (
-                        <div key={user.id} style={{display:"flex"}}>
+                        <div
+                            key={user.id}
+                            style={{
+                                display: "flex",
+                                backgroundColor: highLightColor.queueId === queueId && highLightColor.userId === user.id ? "red" : "transparent"
+                            }}
+                            className="user-container"
+                        >
                             <div>username: {user.username}, email: {user.email}</div>
-                            <div><button onClick={()=> handleDelete(queueId,user.id)}>Remove</button></div>
+                            <div>
+                                <button onClick={() => handleDelete(queueId, user.id)}>Remove</button>
+                            </div>
                         </div>
                     ))}
                 </div>
             ))}
-        </div>    );
+        </div>
+    );
 };
 
 export default AdminHome;
