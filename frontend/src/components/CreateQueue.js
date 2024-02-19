@@ -33,16 +33,66 @@ export default function CreateQueue(){
         }
     };
     return (
-        <div className='createqueue-container'>
-            <form onSubmit={handleQueueData}>
-                <h1>Queue Name</h1>
-                <input type="text" name="queueName" value={data.queueName} onChange={handleChange}/>
-                <h1>Queue Size</h1>
-                <input type="Number" name="queueCapacity" value={data.queueCapacity} onChange={handleChange}/>
-                <h1>Service Type</h1>
-                <input type="text" name="queueService" value={data.queueService} onChange={handleChange}/>
-                <button type="submit">Create</button>
-            </form>
-        </div>
+        <center>
+            <div className='createqueue-container' style={{
+                backgroundColor: 'rgb(54, 39, 94)',
+                color: 'white',
+                borderRadius: '10px',
+                padding: '20px',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+                width:"fit-content",
+            }}>
+                <form onSubmit={handleQueueData}>
+                    <h1 style={{fontSize:"32px"}}>Create Queue</h1>
+                    <table>
+                        <tr>
+                            <td style={{color: 'rgb(226, 83, 69)',fontSize:"22px"}}>Queue Name</td>
+                            <td><input type="text" name="queueName" value={data.queueName} onChange={handleChange}
+                                       style={{
+                                           marginBottom: '10px',
+                                           padding: '8px',
+                                           borderRadius: '5px',
+                                           border: 'none'
+                                       }}/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style={{color: 'rgb(226, 83, 69)',fontSize:"22px"}}>Queue Size</td>
+                            <td><input type="Number" name="queueCapacity" value={data.queueCapacity}
+                                       onChange={handleChange}
+                                       style={{
+                                           marginBottom: '10px',
+                                           padding: '8px',
+                                           borderRadius: '5px',
+                                           border: 'none'
+                                       }}/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style={{color: 'rgb(226, 83, 69)',fontSize:"22px"}}>Queue Service</td>
+                            <td><input type="text" name="queueService" value={data.queueService} onChange={handleChange}
+                                       style={{
+                                           marginBottom: '10px',
+                                           padding: '8px',
+                                           borderRadius: '5px',
+                                           border: 'none'
+                                       }}/>
+                            </td>
+                        </tr>
+                    </table>
+                    <button type="submit" style={{
+                        backgroundColor: 'rgb(226, 83, 69)',
+                        color: 'white',
+                        padding: '10px 20px',
+                        borderRadius: '5px',
+                        border: 'none',
+                        cursor: 'pointer'
+                    }}>Create
+                    </button>
+
+                </form>
+            </div>
+        </center>
+
     );
 }

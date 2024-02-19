@@ -61,36 +61,38 @@ export default function Home(){
     }
     return (
         <div className='home-container'>
-            <h2>Participated Queues</h2>
+            <h2 style={{marginLeft:"9vw",fontSize:"32px",color:"rgb(54, 39, 94)"}}>Participated Queues</h2>
             <div style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
                 height: "50vh",
-                width:"50vw",
-                backgroundColor: "rgba(255,255,255,0.8)"
+                width: "50vw",
+                borderRadius: "10px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                padding: "20px"
             }}>
-                <table style={{width: "50vw", height: "230px", textAlign: "center"}}>
+                <table style={{width: "100%", borderCollapse: "collapse", textAlign: "center"}}>
                     <thead>
-                    <tr>
-                        <th style={{color: "white", fontSize: "20px"}}>NAME</th>
-                        <th style={{color: "white", fontSize: "20px"}}>SIZE</th>
-                        <th style={{color: "white", fontSize: "20px"}}>SERVICE</th>
+                    <tr style={{backgroundColor: "rgb(54, 39, 94)", color: "white"}}>
+                        <th style={{padding: "12px 15px", fontSize: "20px"}}>Name</th>
+                        <th style={{padding: "12px 15px", fontSize: "20px"}}>Capacity</th>
+                        <th style={{padding: "12px 15px", fontSize: "20px"}}>Service</th>
                     </tr>
                     </thead>
                     <tbody>
                     {queues.map(queue => (
-                        <tr key={queue.queueId}>
-                            <td>{queue.queueName}</td>
-                            <td>{queue.queueCapacity}</td>
-                            <td>{queue.queueService}</td>
+                        <tr key={queue.queueId} style={{backgroundColor: "white", color: "rgb(54, 39, 94)"}}>
+                            <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueName}</td>
+                            <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueCapacity}</td>
+                            <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueService}</td>
                         </tr>
                     ))}
                     </tbody>
                 </table>
             </div>
 
-
-        </div>
-    );
+</div>
+)
+    ;
 }

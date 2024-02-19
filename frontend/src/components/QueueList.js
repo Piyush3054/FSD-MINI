@@ -75,7 +75,46 @@ export default function QueueList() {
 
     return (
         <div className='queuelist-container'>
-            <h2>List Of Queue</h2>
+            <center><h2 style={{fontSize:"32px",color:"rgb(226, 83, 69)"}}>List Of Queue</h2></center>
+            <div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100vh"}}>
+                <table style={{
+                    width: "70%",
+                    borderCollapse: "collapse",
+                    backgroundColor: "rgb(54, 39, 94)",
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)"
+                }}>
+                    <thead>
+                    <tr style={{backgroundColor: "rgb(54, 39, 94)", color: "white"}}>
+                        <th style={{padding: "12px 15px"}}>Name</th>
+                        <th style={{padding: "12px 15px"}}>Capacity</th>
+                        <th style={{padding: "12px 15px"}}>Service</th>
+                        <th style={{padding: "12px 15px"}}>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {queues.map(queue => (
+                        <tr key={queue.queueId} style={{backgroundColor: "white", color: "rgb(54, 39, 94)"}}>
+                            <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueName}</td>
+                            <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueCapacity}</td>
+                            <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueService}</td>
+                            <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>
+                                <button style={{
+                                    backgroundColor: "rgb(226, 83, 69)",
+                                    color: "white",
+                                    border: "none",
+                                    padding: "8px 12px",
+                                    borderRadius: "5px",
+                                    cursor: "pointer"
+                                }} onClick={() => handleParticipant(queue.queueId)}>Participate
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
+
 
         </div>
     );
