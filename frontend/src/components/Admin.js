@@ -46,20 +46,27 @@ const Admin = () => {
     };
 
     return (
-        <div className="login-container">
-            <h2>Admin Login</h2>
-            <form onSubmit={handleLogin}>
-                <label>
-                    Username:
-                    <input type="text" name="username" value={credentials.username} onChange={handleChange} />
-                </label>
-                <label>
-                    Password:
-                    <input type="password" name="password" value={credentials.password} onChange={handleChange} />
-                </label>
-                <button type="submit">Login</button>
-            </form>
-        </div>
+        <center>
+            <div className="login-container">
+                <h2>Admin Login</h2>
+                <form onSubmit={handleLogin}>
+                    <table>
+                        <tr>
+                            <td style={{color:"white",fontSize:"21px"}}>Username</td>
+                            <td><input type="text" name="username" value={credentials.username}
+                                       onChange={handleChange}/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style={{color:"white",fontSize:"21px"}}>Password</td>
+                            <td><input type="password" name="password" value={credentials.password}
+                                       onChange={handleChange}/></td>
+                        </tr>
+                    </table>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </center>
     );
 };
 

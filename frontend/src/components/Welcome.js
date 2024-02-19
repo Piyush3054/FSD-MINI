@@ -10,8 +10,7 @@ export default function Welcome(){
     return(
       <div>
           <div className="welcome-container">
-              <nav style={{display:"flex",alignItems:"center"}}>
-                  <h2>Queue<br />Management</h2>
+              <nav style={{display:"flex",alignItems:"center",marginBottom:"15vh",marginTop:"7vh"}} className='navbar-button'>
                   <button onClick={()=>{setShow("1")}}>Home</button>
                   <button onClick={()=>{setShow("2")}}>QueueList</button>
 

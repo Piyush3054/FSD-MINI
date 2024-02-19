@@ -44,21 +44,25 @@ const Login = () => {
     };
 
     return (
-        <div className="login-container">
-            <h2>User Login</h2>
-            <form onSubmit={handleLogin}>
-                <label>
-                    Username:
-                    <input type="text" name="username" value={credentials.username} onChange={handleChange} />
-                </label>
-                <label>
-                    Password:
-                    <input type="password" name="password" value={credentials.password} onChange={handleChange} />
-                </label>
-                <button type="submit">Login</button>
-                <div> don't have account ? <button onClick={() => {navigate("/signup")}}>Sign UP</button></div>
-            </form>
-        </div>
+        <center>
+            <div className="login-container">
+                <h2>User Login</h2>
+                <form onSubmit={handleLogin}>
+                    <label style={{color:"white",fontSize:"21px"}}>
+                        Username
+                        <input type="text" name="username" value={credentials.username} onChange={handleChange} style={{marginLeft:"1vw"}}/>
+                    </label>
+                    <label style={{color:"white",fontSize:"21px"}}>
+                        Password
+                        <input type="password" name="password" value={credentials.password} onChange={handleChange} style={{marginLeft:"1vw"}}/>
+                    </label>
+                    <button type="submit">Login</button>
+                    <div style={{color:"white",marginTop:"10px"}}> don't have account ? <button onClick={() => {
+                        navigate("/signup")
+                    }}>Sign UP</button></div>
+                </form>
+            </div>
+        </center>
     );
 };
 

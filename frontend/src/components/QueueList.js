@@ -76,27 +76,7 @@ export default function QueueList() {
     return (
         <div className='queuelist-container'>
             <h2>List Of Queue</h2>
-            <ul style={{listStyle:"none"}}>
-                {queues.map(queue => (
-                    <li key={queue.queueId}>
-                        <div className='list-container'>
-                            <div style={{marginRight:'3vw'}}>
-                                <div><strong>Name:</strong></div>
-                                <div>{queue.queueName}</div>
-                            </div>
-                            <div style={{marginRight:'3vw'}}>
-                                <div><strong>Capacity:</strong></div>
-                                <div>{queue.queueCapacity}</div>
-                            </div>
-                            <div style={{marginRight:'3vw'}}>
-                                <div><strong>Service:</strong></div>
-                                <div>{queue.queueService}</div>
-                            </div>
-                            <button onClick={() => handleParticipant(queue.queueId)}>Participate</button>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+
         </div>
     );
 }

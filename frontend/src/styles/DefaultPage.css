@@ -1,44 +1,40 @@
-.login-page {
+.main-container{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
 }
-
-.choose-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.info-container{
+    flex: 0.6;
 }
-
+.login-page{
+    flex: 0.4;
+}
 .choose-container h1{
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #333;
+    margin-left: 10vw;
 }
-
-.option {
-    margin-top: 20px;
+.option{
+    margin-left: 10vw;
 }
-
-.choose-container button {
-    font-size: 1.2em;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+.option button{
+    width: 10vw;
+    padding: 15px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+    margin: 5px;
+    background-color: rgb(226, 83, 69);
+    color: white;
+    font-weight: bold;
 }
-
-.choose-container button:hover {
-    background-color: #555;
+.inner{
+    /*background-color: rgb(101, 52, 131);*/
+    color: white;
+    width: 80vh;
+    margin-left: 10vw;
+    padding: 15px;
 }
-
-.choose-container span {
-    margin-left: 10px;
+.inner2{
+    margin-top: 45vh;
+    width:50vw;
+    color: white;
+    background-color: rgb(101, 52, 131);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.7);
 }

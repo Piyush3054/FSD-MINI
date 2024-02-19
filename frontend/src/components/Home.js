@@ -61,27 +61,36 @@ export default function Home(){
     }
     return (
         <div className='home-container'>
-            <h2>Queues</h2>
-            <ul style={{listStyle: "none"}}>
-                {queues.map(queue => (
-                    <li key={queue.queueId}>
-                        <div className='list-container'>
-                            <div style={{marginRight: '3vw'}}>
-                                <div><strong>Name:</strong></div>
-                                <div>{queue.queueName}</div>
-                            </div>
-                            <div style={{marginRight: '3vw'}}>
-                                <div><strong>Capacity:</strong></div>
-                                <div>{queue.queueCapacity}</div>
-                            </div>
-                            <div style={{marginRight: '3vw'}}>
-                                <div><strong>Service:</strong></div>
-                                <div>{queue.queueService}</div>
-                            </div>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+            <h2>Participated Queues</h2>
+            <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "50vh",
+                width:"50vw",
+                backgroundColor: "rgba(255,255,255,0.8)"
+            }}>
+                <table style={{width: "50vw", height: "230px", textAlign: "center"}}>
+                    <thead>
+                    <tr>
+                        <th style={{color: "white", fontSize: "20px"}}>NAME</th>
+                        <th style={{color: "white", fontSize: "20px"}}>SIZE</th>
+                        <th style={{color: "white", fontSize: "20px"}}>SERVICE</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {queues.map(queue => (
+                        <tr key={queue.queueId}>
+                            <td>{queue.queueName}</td>
+                            <td>{queue.queueCapacity}</td>
+                            <td>{queue.queueService}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
+
+
         </div>
     );
 }

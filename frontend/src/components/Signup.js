@@ -54,24 +54,29 @@ const Signup = () => {
 
 
     return (
-        <div className="signup-container">
-            <h2>Sign Up</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Username:
-                    <input type="text" name="username" value={user.username} onChange={handleChange} />
-                </label>
-                <label>
-                    Email:
-                    <input type="email" name="email" value={user.email} onChange={handleChange} />
-                </label>
-                <label>
-                    Password:
-                    <input type="password" name="password" value={user.password} onChange={handleChange} />
-                </label>
-                <button type="submit">Sign Up</button>
-            </form>
-        </div>
+        <center>
+            <div className="signup-container">
+                <h2>Sign Up</h2>
+                <form onSubmit={handleSubmit}>
+                    <table>
+                        <tr>
+                            <td style={{color:"white",fontSize:"21px"}}>Username</td>
+                            <td><input type="text" name="username" value={user.username} onChange={handleChange}/></td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"white",fontSize:"21px"}}>Email</td>
+                            <td><input type="email" name="email" value={user.email} onChange={handleChange}/></td>
+                        </tr>
+                        <tr>
+                        <td style={{color:"white",fontSize:"21px"}}>Password</td>
+                            <td><input type="password" name="password" value={user.password} onChange={handleChange}/>
+                            </td>
+                        </tr>
+                    </table>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </center>
     );
 };
 
