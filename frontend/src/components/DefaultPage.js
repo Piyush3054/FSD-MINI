@@ -7,8 +7,7 @@ const DefaultPage = () => {
         <div className="main-container">
             <div className="info-container">
                 <div>
-                    <p style={{fontSize:"32px"}} className="inner">Welcome To Queue Management App</p>
-                    <div className="inner2" style={{marginLeft:"10vw",fontSize:"18px"}}>Welcome to QueueManagement, where waiting in line becomes a thing of the past! With our <div>innovative queue management solution, you can say goodbye to long queues and hello to streamlined service.</div>QueueManagement is here to make your experience better. Say hello to shorter waits and happier customers with QueueManagement!"</div>
+                    <div className="inner2" style={{marginLeft:"10vw",fontSize:"30px"}}><div style={{color:"white"}}>Welcome to QueueManagement,</div> <div style={{fontFamily: "Brush Script MT, cursive",fontWeight:"bold"}}>where waiting in line becomes a thing of the past! With our innovative queue management solution, you can say goodbye to long queues and hello to streamlined service.QueueManagement is here to make your experience better. Say hello to shorter waits and happier customers with QueueManagement!"</div></div>
                 </div>
             </div>
             <div className="login-page">

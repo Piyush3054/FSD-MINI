@@ -30,11 +30,12 @@
     padding: 15px;
 }
 .inner2{
-    margin-top: 45vh;
+    margin-top: 25vh;
     width:50vw;
-    color: white;
-    background-color: rgb(101, 52, 131);
+    color: #807a7a;
+    /*background-color: rgb(101, 52, 131);*/
     padding: 15px;
     border-radius: 15px;
-    box-shadow: 0px 2px 3px rgba(0,0,0,0.7);
+    /*box-shadow: 0px 2px 3px rgba(0,0,0,0.7);*/
+    font-family: Copperplate, Papyrus, fantasy;
 }
