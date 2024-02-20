@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="792be690-47e2-4391-a111-cf7fdb13d103" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fsdproject/controller/QueueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fsdproject/controller/QueueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fsdproject/entity/QueueWithUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fsdproject/entity/QueueWithUsers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fsdproject/repository/QueueRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fsdproject/repository/QueueRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fsdproject/repository/QueueWithUsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fsdproject/repository/QueueWithUsersRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fsdproject/service/QueueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fsdproject/service/QueueService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/DefaultPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DefaultPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/styles/DefaultPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/DefaultPage.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +58,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/piyus/Downloads/Archive1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/piyus/Downloads/Archive1/frontend/src/Images&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -78,6 +73,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\piyus\Downloads\Archive1\frontend\src\Images" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="FSD PROJECT" />
@@ -115,7 +115,13 @@
       <workItem from="1708091498805" duration="12702000" />
       <workItem from="1708110921789" duration="861000" />
       <workItem from="1708144907501" duration="13556000" />
-      <workItem from="1708163313880" duration="4659000" />
+      <workItem from="1708163313880" duration="19775000" />
+      <workItem from="1708243148384" duration="3057000" />
+      <workItem from="1708251146668" duration="24642000" />
+      <workItem from="1708338730841" duration="5190000" />
+      <workItem from="1708344164521" duration="8156000" />
+      <workItem from="1708360309160" duration="9176000" />
+      <workItem from="1708403988756" duration="659000" />
     </task>
     <servers />
   </component>
