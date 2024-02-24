@@ -58,5 +58,9 @@ public class QueueService {
         queueWithUsersRepository.deleteByQueueAndUser(queue, user);
     }
 
+    @Transactional
+    public void deleteQueue(Long queueId){
+        queueRepository.removeQueueByQueueId(queueId);
+    }
 
 }

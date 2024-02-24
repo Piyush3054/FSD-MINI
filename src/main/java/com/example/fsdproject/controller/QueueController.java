@@ -167,4 +167,28 @@ public class QueueController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/queues/{queueId}/removeQueue")
+    public ResponseEntity<?> deleteQueue(@PathVariable Long queueId)
+    {
+        try{
+            Queue queue = queueService.findQueueById(queueId);
+            Map<String,String> res = new HashMap<>();
+            if(queue == null){
+                res.put("error","Queue is already deleted");
+                return ResponseEntity.badRequest().body(res);
+            }
+            else{
+                queueService.deleteQueue(queueId);
+                res.put("data","Queue Deleted Successfully");
+                return ResponseEntity.ok(res);
+            }
+        }
+        catch (Exception e) {
+            Map<String, String> response = new HashMap<>();
+            response.put("error", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
 }
