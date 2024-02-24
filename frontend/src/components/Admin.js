@@ -52,13 +52,13 @@ const Admin = () => {
                 <form onSubmit={handleLogin}>
                     <table>
                         <tr>
-                            <td style={{color:"white",fontSize:"21px"}}>Username</td>
+                            <td style={{fontSize:"21px",fontWeight:"bold"}}>Username</td>
                             <td><input type="text" name="username" value={credentials.username}
                                        onChange={handleChange}/>
                             </td>
                         </tr>
                         <tr>
-                            <td style={{color:"white",fontSize:"21px"}}>Password</td>
+                            <td style={{fontSize:"21px",fontWeight:"bold"}}>Password</td>
                             <td><input type="password" name="password" value={credentials.password}
                                        onChange={handleChange}/></td>
                         </tr>

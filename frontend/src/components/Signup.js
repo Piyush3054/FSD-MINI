@@ -60,15 +60,15 @@ const Signup = () => {
                 <form onSubmit={handleSubmit}>
                     <table>
                         <tr>
-                            <td style={{color:"white",fontSize:"21px"}}>Username</td>
+                            <td style={{fontSize:"21px",fontWeight:"bold"}}>Username</td>
                             <td><input type="text" name="username" value={user.username} onChange={handleChange}/></td>
                         </tr>
                         <tr>
-                        <td style={{color:"white",fontSize:"21px"}}>Email</td>
+                        <td style={{fontSize:"21px",fontWeight:"bold"}}>Email</td>
                             <td><input type="email" name="email" value={user.email} onChange={handleChange}/></td>
                         </tr>
                         <tr>
-                        <td style={{color:"white",fontSize:"21px"}}>Password</td>
+                        <td style={{fontSize:"21px",fontWeight:"bold"}}>Password</td>
                             <td><input type="password" name="password" value={user.password} onChange={handleChange}/>
                             </td>
                         </tr>

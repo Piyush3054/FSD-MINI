@@ -35,8 +35,7 @@ export default function CreateQueue(){
     return (
         <center>
             <div className='createqueue-container' style={{
-                backgroundColor: 'rgb(54, 39, 94)',
-                color: 'white',
+                backgroundColor: 'white',
                 borderRadius: '10px',
                 padding: '20px',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
@@ -46,36 +45,33 @@ export default function CreateQueue(){
                     <h1 style={{fontSize:"32px"}}>Create Queue</h1>
                     <table>
                         <tr>
-                            <td style={{color: 'rgb(226, 83, 69)',fontSize:"22px"}}>Queue Name</td>
+                            <td style={{color: 'black',fontSize:"22px",fontWeight:"bold"}}>Queue Name</td>
                             <td><input type="text" name="queueName" value={data.queueName} onChange={handleChange}
                                        style={{
                                            marginBottom: '10px',
                                            padding: '8px',
                                            borderRadius: '5px',
-                                           border: 'none'
                                        }}/>
                             </td>
                         </tr>
                         <tr>
-                            <td style={{color: 'rgb(226, 83, 69)',fontSize:"22px"}}>Queue Size</td>
+                            <td style={{color: 'black',fontSize:"22px",fontWeight:"bold"}}>Queue Size</td>
                             <td><input type="Number" name="queueCapacity" value={data.queueCapacity}
                                        onChange={handleChange}
                                        style={{
                                            marginBottom: '10px',
                                            padding: '8px',
                                            borderRadius: '5px',
-                                           border: 'none'
                                        }}/>
                             </td>
                         </tr>
                         <tr>
-                            <td style={{color: 'rgb(226, 83, 69)',fontSize:"22px"}}>Queue Service</td>
+                            <td style={{color: 'black',fontSize:"22px",fontWeight:"bold"}}>Queue Service</td>
                             <td><input type="text" name="queueService" value={data.queueService} onChange={handleChange}
                                        style={{
                                            marginBottom: '10px',
                                            padding: '8px',
                                            borderRadius: '5px',
-                                           border: 'none'
                                        }}/>
                             </td>
                         </tr>

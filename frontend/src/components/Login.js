@@ -48,16 +48,16 @@ const Login = () => {
             <div className="login-container">
                 <h2>User Login</h2>
                 <form onSubmit={handleLogin}>
-                    <label style={{color:"white",fontSize:"21px"}}>
+                    <label style={{fontSize:"21px"}}>
                         Username
                         <input type="text" name="username" value={credentials.username} onChange={handleChange} style={{marginLeft:"1vw"}}/>
                     </label>
-                    <label style={{color:"white",fontSize:"21px"}}>
+                    <label style={{fontSize:"21px"}}>
                         Password
                         <input type="password" name="password" value={credentials.password} onChange={handleChange} style={{marginLeft:"1vw"}}/>
                     </label>
                     <button type="submit">Login</button>
-                    <div style={{color:"white",marginTop:"10px"}}> don't have account ? <button onClick={() => {
+                    <div style={{marginTop:"10px"}}> don't have account ? <button onClick={() => {
                         navigate("/signup")
                     }}>Sign UP</button></div>
                 </form>

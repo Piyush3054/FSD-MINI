@@ -1,11 +1,20 @@
 .main-container{
+    width:100vw;
+    height: 90vh;
+    padding-top: 5vh;
+}
+.inner-container{
+    width:90vw;
+    height: 90vh;
     display: flex;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.6);
+    border-radius: 5px;
 }
 .info-container{
-    flex: 0.6;
+    flex: 0.5;
 }
 .login-page{
-    flex: 0.4;
+    flex: 0.5;
 }
 .choose-container h1{
     margin-left: 10vw;
@@ -32,7 +41,7 @@
 .inner2{
     margin-top: 25vh;
     width:50vw;
-    color: #807a7a;
+    color: #fab8b8;
     /*background-color: rgb(101, 52, 131);*/
     padding: 15px;
     border-radius: 15px;

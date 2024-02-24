@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/adminhome.css'
-
+import Divider from '@mui/material/Divider';
 const AdminHome = () => {
     const [queuesWithUsers, setQueuesWithUsers] = useState([]);
     const [highLightColor,setHighLightColor] = useState({
@@ -159,37 +159,48 @@ const AdminHome = () => {
 
     return (
         <div>
-            {Object.entries(groupedQueues).map(([queueId, users]) => (
-                <div key={queueId} className='queue-container'>
-                        {queueNames[queueId-1] && (
-                            <h3 style={{fontSize: "28px",color:"rgb(226, 83, 69)"}}>{queueNames[queueId-1].queueName}</h3>
-                        )}
+            <center><h1 style={{color:"white"}}>Running Queues</h1></center>
+            <center>
+                <div className="queue-view">
+                    <div className="admin-outer">
+                        {Object.entries(groupedQueues).map(([queueId, users]) => (
+                            <div className="admin-queueView">
+                                {queueNames[queueId - 1] && (
+                                    <h3 style={{
+                                        fontSize: "28px",
+                                        color: "white"
+                                    }}>{queueNames[queueId - 1].queueName}</h3>
+                                )}
+                                {users.map(user => (
+                                        <div
+                                            className="user-queueView"
+                                            key={user.id}
+                                            style={{
+                                                display: "flex",
+                                                backgroundColor: highLightColor.queueId === queueId && highLightColor.userId === user.id ? "rgba(240, 105, 96,0.2)" : highLightedColor.queueId === queueId && highLightedColor.userId === user.id ? "rgba(122, 240, 122,0.2)" : "#181818"
+                                            }}
+                                        >
+                                            <div style={{display: "flex", color: "white", fontSize: "19px",marginRight:"5px",alignSelf:"center"}}>
+                                                <div >Username {user.username}</div>
+                                            </div>
+                                            <div>
+                                                {(highLightColor.userId !== user.id || highLightColor.queueId !== queueId) && ((highLightedColor.queueId !== queueId || highLightedColor.userId !== user.id)) &&
+                                                    <button onClick={() => handleDelete(queueId, user.id)}
+                                                            style={{backgroundColor: "rgba(255, 0, 0,1)",width:"5vw"}}>Remove</button>
+                                                }
+                                                {(highLightedColor.queueId !== queueId || highLightedColor.userId !== user.id) && (highLightColor.userId !== user.id || highLightColor.queueId !== queueId) &&
+                                                    <button onClick={() => handleDone(queueId, user.id)}
+                                                            style={{backgroundColor: "rgba(0, 190, 0,1)",width:"5vw"}}>Done</button>
+                                                }
+                                            </div>
+                                        </div>
+                                ))}
+                            </div>
 
-                    <center>{users.map(user => (
-                        <div
-                            key={user.id}
-                            style={{
-                                display: "flex",
-                                backgroundColor: highLightColor.queueId === queueId && highLightColor.userId === user.id ? "rgba(240, 105, 96,0.4)" : highLightedColor.queueId === queueId && highLightedColor.userId === user.id ? "rgba(122, 240, 122,0.4)" : "rgba(40,15,44,0.1)"
-                            }}
-                            className="user-container"
-                        >
-                            <div style={{display: "flex",color:"white",fontSize:"19px"}}>
-                                <div style={{margin: '10px'}}>Username: {user.username}</div>
-                                <div style={{margin: '10px'}}>Email: {user.email}</div>
-                            </div>
-                            <div>
-                                {(highLightColor.userId !== user.id || highLightColor.queueId !== queueId) && ((highLightedColor.queueId !== queueId || highLightedColor.userId !== user.id)) &&
-                                    <button onClick={() => handleDelete(queueId, user.id)} style={{backgroundColor:"rgba(255, 0, 0,0.9)"}}>Remove</button>
-                                }
-                                {(highLightedColor.queueId !== queueId || highLightedColor.userId !== user.id) && (highLightColor.userId !== user.id || highLightColor.queueId !== queueId) &&
-                                    <button onClick={() => handleDone(queueId, user.id)} style={{backgroundColor:"rgba(0, 190, 0,0.9)"}}>Done</button>
-                                }
-                            </div>
-                        </div>
-                    ))}</center>
+                        ))}
+                    </div>
                 </div>
-            ))}
+            </center>
         </div>
     );
 };

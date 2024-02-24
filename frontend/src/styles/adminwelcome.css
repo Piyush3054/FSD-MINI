@@ -1,0 +1,17 @@
+.adminWelcome-container{
+    /*padding: px;*/
+    color:white;
+}
+.adminWelcome-container nav button{
+    margin-left: 2vw;
+    cursor: pointer;
+}
+.adminWelcome-container nav{
+    margin-left: 62vw;
+}
+.adminWelcome-container .navbar-button button{
+    border: none;
+    background-color: transparent;
+    font-size: 25px;
+    color: rgb(226, 83, 69);
+}
