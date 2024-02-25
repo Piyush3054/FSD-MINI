@@ -140,6 +140,29 @@ public class QueueController {
         }
     }
     @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/queues/{queueId}/{userId}/remove")
+    public ResponseEntity<?> exitUserFromQueue(@PathVariable Long queueId,@PathVariable Long userId)
+    {
+        try {
+            User user = userService.findUserById(userId);
+            Queue queue = queueService.findQueueById(queueId);
+            Optional<QueueWithUsers> existingAssociation = queueWithUsersRepository.findByQueueAndUser(queue, user);
+            if (queue == null || user == null) {
+                Map<String, String> response = new HashMap<>();
+                response.put("error", "Queue Or User Not found");
+                return ResponseEntity.badRequest().body(response);
+            }
+            queueService.removeUserFromQueue(queue, user);
+            Map<String, String> response = new HashMap<>();
+            response.put("data", "User Removed Successfully");
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            Map<String, String> response = new HashMap<>();
+            response.put("error", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/queues/{queueId}/{userId}/doneUserWork")
     public ResponseEntity<?> doneUserWork(@PathVariable Long queueId,@PathVariable Long userId)
     {
