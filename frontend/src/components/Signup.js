@@ -1,11 +1,12 @@
-// Signup.js
-
 import React, { useState } from 'react';
 import '../styles/Signup.css';
 import {useNavigate} from "react-router-dom";
+import Toaster from "./Toaster";
 
 const Signup = () => {
     const navigate = useNavigate();
+    const [signUpStatus,setSignUpStatus] = useState("");
+
     const [user, setUser] = useState({
         username: '',
         email: '',
@@ -41,8 +42,14 @@ const Signup = () => {
             if (response.ok) {
                 const responseData = await response.json();
                 console.log(responseData.data);
+                setSignUpStatus({msg:"User Added",key:Math.random()});
                 navigate("/login");
             } else {
+                setSignUpStatus(
+                    {
+                       msg:"User not Added",
+                       key:Math.random()
+                    });
                 const errorData = await response.json();
                 console.error('Error during signup:', errorData.error);
             }
@@ -54,29 +61,36 @@ const Signup = () => {
 
 
     return (
-        <center>
-            <div className="signup-container">
-                <h2>Sign Up</h2>
-                <form onSubmit={handleSubmit}>
-                    <table>
-                        <tr>
-                            <td style={{fontSize:"21px",fontWeight:"bold"}}>Username</td>
-                            <td><input type="text" name="username" value={user.username} onChange={handleChange}/></td>
-                        </tr>
-                        <tr>
-                        <td style={{fontSize:"21px",fontWeight:"bold"}}>Email</td>
-                            <td><input type="email" name="email" value={user.email} onChange={handleChange}/></td>
-                        </tr>
-                        <tr>
-                        <td style={{fontSize:"21px",fontWeight:"bold"}}>Password</td>
-                            <td><input type="password" name="password" value={user.password} onChange={handleChange}/>
-                            </td>
-                        </tr>
-                    </table>
-                    <button type="submit">Sign Up</button>
-                </form>
-            </div>
-        </center>
+        <>
+            <center>
+                <div className="signup-container">
+                    <h2>Sign Up</h2>
+                    <form onSubmit={handleSubmit}>
+                        <table>
+                            <tr>
+                                <td style={{fontSize: "21px", fontWeight: "bold"}}>Username</td>
+                                <td><input type="text" name="username" value={user.username} onChange={handleChange}/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style={{fontSize: "21px", fontWeight: "bold"}}>Email</td>
+                                <td><input type="email" name="email" value={user.email} onChange={handleChange}/></td>
+                            </tr>
+                            <tr>
+                                <td style={{fontSize: "21px", fontWeight: "bold"}}>Password</td>
+                                <td><input type="password" name="password" value={user.password}
+                                           onChange={handleChange}/>
+                                </td>
+                            </tr>
+                        </table>
+                        <button type="submit">Sign Up</button>
+                    </form>
+                </div>
+            </center>
+            {signUpStatus ? (
+                <Toaster key={signUpStatus.key} message={signUpStatus.msg} />
+            ) : null}
+        </>
     );
 };
 

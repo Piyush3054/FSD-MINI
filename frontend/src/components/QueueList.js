@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import '../styles/queuelist.css';
+import Toaster from "./Toaster";
 
 export default function QueueList() {
     const [user,setUser] = useState([]);
     const [queues, setQueues] = useState([]);
+    const [quserStatus,setQuserStatus] = useState("");
     let userName;
 
     useEffect(() => {
@@ -17,12 +19,15 @@ export default function QueueList() {
     const fetchQueues = async () => {
         try {
             const response = await fetch('http://localhost:8080/api/queues');
-            if (!response.ok) {
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data);
+                setQueues(data);
+            }
+            else{
+
                 throw new Error('Failed to fetch queues');
             }
-            const data = await response.json();
-            console.log(data);
-            setQueues(data);
         } catch (error) {
             console.error('Error fetching queues:', error);
         }
@@ -63,9 +68,11 @@ export default function QueueList() {
                 if (response.ok) {
                     const responseData = await response.json();
                     console.log(responseData.data);
+                    setQuserStatus({msg:"User added in queue",key:Math.random()});
                 } else {
                     const errorData = await response.json();
                     console.error('Error during Adding user to queue:', errorData.error);
+                    setQuserStatus({msg:"User was not added in queue",key:Math.random()});
                 }
             }
             catch (error) {
@@ -74,52 +81,61 @@ export default function QueueList() {
     };
 
     return (
-        <div className='queuelist-container'>
-            <center><h2 style={{fontSize:"32px",color:"white"}}>List Of Queue</h2></center>
-            <center>
-                <div style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "80vh",
-                    width: "80vw",
-                    borderRadius: "10px",
-                    padding: "20px"
-                }}>
-                    <table style={{width: "80vw", height: "80vh", borderCollapse: "collapse", textAlign: "center"}}>
-                        <thead>
-                        <tr style={{backgroundColor: "black", color: "white"}}>
-                            <th style={{padding: "12px 15px"}}>Name</th>
-                            <th style={{padding: "12px 15px"}}>Capacity</th>
-                            <th style={{padding: "12px 15px"}}>Service</th>
-                            <th style={{padding: "12px 15px"}}>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {queues.map(queue => (
-                            <tr key={queue.queueId} style={{backgroundColor: "white", color: "black"}}>
-                                <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueName}</td>
-                                <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueCapacity}</td>
-                                <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueService}</td>
-                                <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>
-                                    <button style={{
-                                        backgroundColor: "rgb(226, 83, 69)",
-                                        color: "white",
-                                        border: "none",
-                                        padding: "8px 12px",
-                                        borderRadius: "5px",
-                                        cursor: "pointer"
-                                    }} onClick={() => handleParticipant(queue.queueId)}>Participate
-                                    </button>
-                                </td>
+        <>
+            <div className='queuelist-container'>
+                <center><h2 style={{fontSize: "32px", color: "white"}}>List Of Queue</h2></center>
+                <center>
+                    <div style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: "10px",
+                        padding: "20px"
+                    }}>
+                        <table style={{width: "80vw", borderCollapse: "collapse", textAlign: "center"}}>
+                            <thead>
+                            <tr style={{backgroundColor: "black", color: "white"}}>
+                                <th style={{padding: "12px 15px"}}>Name</th>
+                                <th style={{padding: "12px 15px"}}>Capacity</th>
+                                <th style={{padding: "12px 15px"}}>Service</th>
+                                <th style={{padding: "12px 15px"}}>Action</th>
                             </tr>
-                        ))}
-                        </tbody>
-                    </table>
-                </div>
-            </center>
+                            </thead>
+                            <tbody>
+                            {queues.map(queue => (
+                                <tr key={queue.queueId} style={{backgroundColor: "white", color: "black"}}>
+                                    <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueName}</td>
+                                    <td style={{
+                                        padding: "12px 15px",
+                                        border: "1px solid #ddd"
+                                    }}>{queue.queueCapacity}</td>
+                                    <td style={{
+                                        padding: "12px 15px",
+                                        border: "1px solid #ddd"
+                                    }}>{queue.queueService}</td>
+                                    <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>
+                                        <button style={{
+                                            backgroundColor: "rgb(226, 83, 69)",
+                                            color: "white",
+                                            border: "none",
+                                            padding: "8px 12px",
+                                            borderRadius: "5px",
+                                            cursor: "pointer"
+                                        }} onClick={() => handleParticipant(queue.queueId)}>Participate
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </center>
 
 
-        </div>
+            </div>
+            {quserStatus ? (
+                <Toaster key={quserStatus.key} message={quserStatus.msg} />
+            ) : null}
+        </>
     );
 }

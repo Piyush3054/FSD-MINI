@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
+import Toaster from "./Toaster";
 
 const Admin = () => {
     const navigate = useNavigate();
+    const [logInStatus,setLogInStatus] = useState("");
 
     const [credentials, setCredentials] = useState({
         username: '',
@@ -35,10 +37,17 @@ const Admin = () => {
                 const responseData = await response.json();
                 const { token } = responseData;
                 sessionStorage.setItem('token', token);
+                setLogInStatus({ msg: "Success", key: Math.random() });
                 const [username, expirationTimestamp] = token.split('|');
 
                 console.log('Username:', username);
                 navigate("/adminWelcome");
+            }
+            else{
+                setLogInStatus({
+                    msg: "Invalid User name or Password",
+                    key: Math.random(),
+                });
             }
         } catch (error) {
             console.error('Error during login:', error.message);
@@ -46,6 +55,7 @@ const Admin = () => {
     };
 
     return (
+        <>
         <center>
             <div className="login-container">
                 <h2>Admin Login</h2>
@@ -67,6 +77,10 @@ const Admin = () => {
                 </form>
             </div>
         </center>
+            {logInStatus ? (
+                <Toaster key={logInStatus.key} message={logInStatus.msg} />
+            ) : null}
+        </>
     );
 };
 

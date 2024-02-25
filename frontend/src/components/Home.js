@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
 import '../styles/home.css'
+import Toaster from "./Toaster";
 
 export default function Home(){
     const [user,setUser] = useState([]);
     const [queues,setQueues] = useState([]);
+    const [exitStatus,setExitStatus] = useState("");
     let userName;
 
     useEffect(() => {
@@ -59,40 +61,79 @@ export default function Home(){
             console.error('Error fetching queues:', error);
         }
     }
+    const handleRemove = async (queueId,userId) => {
+        try{
+            const response = await fetch(`http://localhost:8080/api/queues/${queueId}/${userId}/remove`,{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (response.ok) {
+                const responseData = await response.json();
+                console.log(responseData.data);
+                setExitStatus({msg:"You Are Exited from queue",key:Math.random()});
+            } else {
+                const errorData = await response.json();
+                console.error('Error during Delete or Remove User From Queue:', errorData.error);
+                setExitStatus({msg:"You Are already Exited from queue",key:Math.random()});
+            }
+
+
+        }
+        catch (error) {
+            console.error('Error during Delete or Remove User From Queue:', error.message);
+        }
+    }
     return (
-        <div className='home-container'>
-            <center><h2 style={{marginLeft:"9vw",fontSize:"32px",color:"white"}}>Participated Queues</h2></center>
-            <center>
-                <div style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "80vh",
-                    width: "80vw",
-                    borderRadius: "10px",
-                    padding: "20px"
-                }}>
-                    <table style={{width: "80vw",height:'80vh', borderCollapse: "collapse", textAlign: "center"}}>
-                        <thead>
-                        <tr style={{backgroundColor: "black", color: "white"}}>
-                            <th style={{padding: "12px 15px", fontSize: "20px"}}>Name</th>
-                            <th style={{padding: "12px 15px", fontSize: "20px"}}>Capacity</th>
-                            <th style={{padding: "12px 15px", fontSize: "20px"}}>Service</th>
-                            <th style={{padding: "12px 15px", fontSize: "20px"}}>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {queues.map(queue => (
-                            <tr key={queue.queueId} style={{backgroundColor: "white", color: "black"}}>
-                                <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueName}</td>
-                                <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueCapacity}</td>
-                                <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueService}</td>
+        <>
+            <div className='home-container'>
+                <center><h2 style={{marginLeft: "9vw", fontSize: "32px", color: "white"}}>Participated Queues</h2>
+                </center>
+                <center>
+                    <div style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: "10px",
+                        padding: "20px"
+                    }}>
+                        <table style={{width: "80vw", borderCollapse: "collapse", textAlign: "center"}}>
+                            <thead>
+                            <tr style={{backgroundColor: "black", color: "white"}}>
+                                <th style={{padding: "12px 15px",width:"30px",height:"20px", fontSize: "20px"}}>Name</th>
+                                <th style={{padding: "12px 15px",width:"30px",height:"20px", fontSize: "20px"}}>Capacity</th>
+                                <th style={{padding: "12px 15px",width:"30px",height:"20px", fontSize: "20px"}}>Service</th>
+                                <th style={{padding: "12px 15px",width:"30px",height:"20px", fontSize: "20px"}}>Action</th>
                             </tr>
-                        ))}
-                        </tbody>
-                    </table>
-                </div></center>
-</div>
-)
-    ;
+                            </thead>
+                            <tbody>
+                            {queues.map(queue => (
+                                <tr key={queue.queueId} style={{backgroundColor: "white", color: "black"}}>
+                                    <td style={{padding: "12px 15px",width:"30px",height:"20px", border: "1px solid #ddd"}}>{queue.queueName}</td>
+                                    <td style={{
+                                        padding: "12px 15px",
+                                        border: "1px solid #ddd",width:"30px",height:"20px"
+                                    }}>{queue.queueCapacity}</td>
+                                    <td style={{
+                                        padding: "12px 15px",
+                                        border: "1px solid #ddd",width:"30px",height:"20px"
+                                    }}>{queue.queueService}</td>
+                                    <td style={{padding: "12px 15px",width:"30px",height:"20px", border: "1px solid #ddd"}}>
+                                        <button onClick={() => handleRemove(queue.queueId, user.id)} style={{backgroundColor:"black",border:"none",color:"white",padding:"10px",paddingLeft:"25px",paddingRight:"25px",borderRadius:"10px"}}>Exit</button>
+                                    </td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </center>
+            </div>
+            {exitStatus ? (
+                <Toaster key={exitStatus.key} message={exitStatus.msg} />
+            ) : null}
+        </>
+    )
+        ;
 }
