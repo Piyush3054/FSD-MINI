@@ -2,41 +2,47 @@ import React, {useState} from "react";
 import '../styles/createqueue.css'
 import Toaster from "./Toaster";
 import {TextField} from "@mui/material";
+import Tooaster from "./Tooaster";
 
 export default function CreateQueue(){
-    const QueueInfo = {
-        queueName : "",
-        queueCapacity : "",
-        queueService : "",
-    }
-    const [data,setData] = useState(QueueInfo);
+    const [data,setData] = useState({
+        queueName : null,
+        queueCapacity : null,
+        queueService : null,
+    });
     const [queueStatus,setQueueStatus] = useState("");
+    const [queuueStatus,setQueuueStatus] = useState("");
     const handleChange = (e) => {
         setData({...data,[e.target.name]:e.target.value});
     };
     const handleQueueData = async (e) => {
 
-        try{
-            const res = await fetch('http://localhost:8080/api/createqueue',{
-                method : 'POST',
-                headers: {
-                    'Content-Type':'application/json',
-                },
-                body:JSON.stringify(data),
-            });
-            if (res.ok) {
-                // Handle success
-                const responseData = await res.json();
-                console.log(responseData.data);
-                setQueueStatus({msg:"Queue created SuccessFully",key:Math.random()});
-            }
-            else{
-                setQueueStatus({msg:"Queue is not created",key:Math.random()});
-            }
+        if(data.queueName == null && data.queueCapacity == null && data.queueService == null){
+            setQueuueStatus({msg:"Fill all field for creating Queue",key:Math.random()});
         }
-        catch (error) {
-            // Handle network errors or other exceptions
-            console.error('Error during :', error.message);
+        else {
+            try{
+                const res = await fetch('http://localhost:8080/api/createqueue',{
+                    method : 'POST',
+                    headers: {
+                        'Content-Type':'application/json',
+                    },
+                    body:JSON.stringify(data),
+                });
+                if (res.ok) {
+                    // Handle success
+                    const responseData = await res.json();
+                    console.log(responseData.data);
+                    setQueueStatus({msg:"Queue created SuccessFully",key:Math.random()});
+                }
+                else{
+                    setQueueStatus({msg:"Queue is not created",key:Math.random()});
+                }
+            }
+            catch (error) {
+                // Handle network errors or other exceptions
+                console.error('Error during :', error.message);
+            }
         }
     };
     return (
@@ -88,6 +94,9 @@ export default function CreateQueue(){
             </center>
             {queueStatus ? (
                 <Toaster key={queueStatus.key} message={queueStatus.msg}/>
+            ) : null}
+            {queuueStatus ? (
+                <Tooaster key={queuueStatus.key} message={queuueStatus.msg}/>
             ) : null}
         </>
 

@@ -89,7 +89,7 @@ export default function Home(){
     return (
         <>
             <div className='home-container'>
-                <center><h2 style={{marginLeft: "9vw", fontSize: "32px"}}>Participated Queues</h2>
+                <center><h2 style={{fontSize: "32px"}}>Participated Queues</h2>
                 </center>
                 <center>
                     <div style={{

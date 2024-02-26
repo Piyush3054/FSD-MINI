@@ -15,7 +15,8 @@ export default function Welcome(){
         <div>
         <div className="adminWelcome-container">
             <nav style={{display:"flex",alignItems:"center",marginBottom:"15vh",marginTop:"7vh"}} className='navbar-button'>
-                <button onClick={()=>{setShow("1")}}>Home</button>
+                <img src="https://see.fontimg.com/api/renderfont4/MVdYB/eyJyIjoiZnMiLCJoIjozNSwidyI6MTI1MCwiZnMiOjI4LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/UVVFVUUgTUFOQUdFTUVORVQ/debug-free-trial.png" />
+                <button onClick={()=>{setShow("1")}} style={{marginLeft:"41vw"}}>Home</button>
                 <button onClick={()=>{setShow("2")}}>CreateQueue</button>
                 <button onClick={()=>{setShow("3")}}>RunningQueues</button>
             </nav>
