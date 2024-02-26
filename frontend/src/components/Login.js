@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import Toaster from "./Toaster";
+import Tooaster from "./Tooaster";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -74,7 +75,7 @@ const Login = () => {
             </div>
         </center>
             {logInStatus ? (
-                <Toaster key={logInStatus.key} message={logInStatus.msg} />
+                <Tooaster key={logInStatus.key} message={logInStatus.msg} />
             ) : null}
         </>
     );

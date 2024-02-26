@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/Signup.css';
 import {useNavigate} from "react-router-dom";
 import Toaster from "./Toaster";
+import Tooaster from "./Tooaster";
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -88,7 +89,7 @@ const Signup = () => {
                 </div>
             </center>
             {signUpStatus ? (
-                <Toaster key={signUpStatus.key} message={signUpStatus.msg} />
+                <Tooaster key={signUpStatus.key} message={signUpStatus.msg} />
             ) : null}
         </>
     );

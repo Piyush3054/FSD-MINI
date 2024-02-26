@@ -2,7 +2,7 @@ import { Alert, IconButton, Snackbar } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import React, { useState } from 'react'
 
-export default function Toaster({ message }) {
+export default function Tooaster({ message }) {
     const [open, setOpen] = useState(true);
     function handleClose(event, reason) {
         if (reason === "clickaway") {
@@ -31,7 +31,7 @@ export default function Toaster({ message }) {
                     </IconButton>
                 ]}
             >
-                <Alert onClose={handleClose} severity='success' sx={{ width: '25vw' }} style={{backgroundColor:"rgb(235,236,239)",color:"green"}}>{message}</Alert>
+                <Alert onClose={handleClose} severity='warning' sx={{ width: '25vw' }} style={{backgroundColor:"rgb(235,236,239)",color:"red"}}>{message}</Alert>
             </Snackbar>
         </div>
     );

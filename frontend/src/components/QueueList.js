@@ -68,11 +68,11 @@ export default function QueueList() {
                 if (response.ok) {
                     const responseData = await response.json();
                     console.log(responseData.data);
-                    setQuserStatus({msg:"User added in queue",key:Math.random()});
+                    setQuserStatus({msg:"You are added in queue",key:Math.random()});
                 } else {
                     const errorData = await response.json();
                     console.error('Error during Adding user to queue:', errorData.error);
-                    setQuserStatus({msg:"User was not added in queue",key:Math.random()});
+                    setQuserStatus({msg:"You are already in queue",key:Math.random()});
                 }
             }
             catch (error) {

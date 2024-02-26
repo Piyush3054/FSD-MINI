@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/adminwelcome.css';
 import CreateQueue from "./CreateQueue";
@@ -8,6 +8,9 @@ import RunningQueues from "./RunningQueues";
 
 export default function Welcome(){
     const [show,setShow] = useState("1");
+    useEffect(() => {
+
+    }, []);
     return(
         <div>
         <div className="adminWelcome-container">

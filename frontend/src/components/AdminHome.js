@@ -159,7 +159,6 @@ const AdminHome = () => {
 
     return (
         <div>
-            <center><h1 style={{color:"white"}}>Running Queues</h1></center>
             <center>
                 <div className="queue-view">
                     <div className="admin-outer">
