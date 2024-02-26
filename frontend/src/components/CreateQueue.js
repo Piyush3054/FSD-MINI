@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import '../styles/createqueue.css'
 import Toaster from "./Toaster";
+import {TextField} from "@mui/material";
 
 export default function CreateQueue(){
     const QueueInfo = {
@@ -48,57 +49,45 @@ export default function CreateQueue(){
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
                     width: "fit-content",
                 }}>
-                    <form onSubmit={handleQueueData}>
-                        <h1 style={{fontSize: "32px"}}>Create Queue</h1>
-                        <table>
-                            <tr>
-                                <td style={{color: 'black', fontSize: "22px", fontWeight: "bold"}}>Queue Name</td>
-                                <td><input type="text" name="queueName" value={data.queueName} onChange={handleChange}
-                                           style={{
-                                               marginBottom: '10px',
-                                               padding: '8px',
-                                               borderRadius: '5px',
-                                           }}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style={{color: 'black', fontSize: "22px", fontWeight: "bold"}}>Queue Size</td>
-                                <td><input type="Number" name="queueCapacity" value={data.queueCapacity}
-                                           onChange={handleChange}
-                                           style={{
-                                               marginBottom: '10px',
-                                               padding: '8px',
-                                               borderRadius: '5px',
-                                           }}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style={{color: 'black', fontSize: "22px", fontWeight: "bold"}}>Queue Service</td>
-                                <td><input type="text" name="queueService" value={data.queueService}
-                                           onChange={handleChange}
-                                           style={{
-                                               marginBottom: '10px',
-                                               padding: '8px',
-                                               borderRadius: '5px',
-                                           }}/>
-                                </td>
-                            </tr>
-                        </table>
-                        <button type="submit" style={{
-                            backgroundColor: 'rgb(226, 83, 69)',
-                            color: 'white',
-                            padding: '10px 20px',
-                            borderRadius: '5px',
-                            border: 'none',
-                            cursor: 'pointer'
-                        }}>Create
-                        </button>
+                    <div style={{display: "flex", flexDirection: "column"}}>
+                        <div style={{
+                            marginRight: "16vw",
+                            fontSize: "20px",
+                            fontWeight: "bold",
+                            marginBottom: "1vh"
+                        }}>QueueName
+                        </div>
+                        <TextField type="text" name="queueName" value={data.queueName} onChange={handleChange}
+                                   label="QueueName" style={{marginBottom:"10px"}}/>
+                    </div>
+                    <div style={{display: "flex", flexDirection: "column"}}>
+                        <div style={{
+                            marginRight: "17vw",
+                            fontSize: "20px",
+                            fontWeight: "bold",
+                            marginBottom: "1vh"
+                        }}>Queue Size
+                        </div>
+                        <TextField type="number" name="queueCapacity" value={data.queueCapacity} onChange={handleChange}
+                                   label="QueueCapacity" style={{marginBottom:"10px"}}/>
+                    </div>
+                    <div style={{display: "flex", flexDirection: "column"}}>
+                        <div style={{
+                            marginRight: "15vw",
+                            fontSize: "20px",
+                            fontWeight: "bold",
+                            marginBottom: "1vh"
+                        }}>Queue Service
+                        </div>
+                        <TextField type="text" name="queueService" value={data.queueService} onChange={handleChange}
+                                   label="QueueService" style={{marginBottom:"10px"}}/>
+                    </div>
 
-                    </form>
+                    <button onClick={handleQueueData} style={{width: "15vw", marginTop: "2vh",padding:"2vh",border:"none",borderRadius:"10px",backgroundColor:"rgb(226, 83, 69)",color:"white",fontWeight:"bold",fontSize:"18px"}}>Create</button>
                 </div>
             </center>
             {queueStatus ? (
-                <Toaster key={queueStatus.key} message={queueStatus.msg} />
+                <Toaster key={queueStatus.key} message={queueStatus.msg}/>
             ) : null}
         </>
 

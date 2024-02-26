@@ -52,7 +52,7 @@ function RunningQueues(props) {
     return (
         <>
             <div className='queuelist-container'>
-                <center><h2 style={{fontSize: "32px", color: "white"}}>List Of Queue</h2></center>
+                <center><h2 style={{fontSize: "32px"}}>List Of Queue</h2></center>
                 <center>
                     <div style={{
                         display: "flex",

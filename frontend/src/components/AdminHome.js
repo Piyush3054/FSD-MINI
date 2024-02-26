@@ -164,11 +164,11 @@ const AdminHome = () => {
                     <div className="admin-outer">
                         {Object.entries(groupedQueues).map(([queueId, users]) => (
                             <div className="admin-queueView">
-                                {queueNames[queueId - 1] && (
+                                {queueNames[queueId-1] && (
                                     <h3 style={{
                                         fontSize: "28px",
                                         color: "white"
-                                    }}>{queueNames[queueId - 1].queueName}</h3>
+                                    }}>{queueNames[queueId-1].queueName}</h3>
                                 )}
                                 {users.map(user => (
                                         <div

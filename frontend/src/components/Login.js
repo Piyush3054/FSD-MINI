@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import '../styles/Login.css';
 import Toaster from "./Toaster";
 import Tooaster from "./Tooaster";
+import {TextField} from "@mui/material";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -55,27 +56,38 @@ const Login = () => {
 
     return (
         <>
-        <center>
-            <div className="login-container">
-                <h2>User Login</h2>
-                <form onSubmit={handleLogin}>
-                    <label style={{fontSize:"21px"}}>
-                        Username
-                        <input type="text" name="username" value={credentials.username} onChange={handleChange} style={{marginLeft:"1vw"}}/>
-                    </label>
-                    <label style={{fontSize:"21px"}}>
-                        Password
-                        <input type="password" name="password" value={credentials.password} onChange={handleChange} style={{marginLeft:"1vw"}}/>
-                    </label>
-                    <button type="submit">Login</button>
-                    <div style={{marginTop:"10px"}}> don't have account ? <button onClick={() => {
+            <center>
+                <div className="login-container">
+                    <div style={{display: "flex", flexDirection: "column"}}>
+                        <div style={{
+                            marginRight: "15vw",
+                            fontSize: "20px",
+                            fontWeight: "bold",
+                            marginBottom: "1vh"
+                        }}>Username
+                        </div>
+                        <TextField type="text" name="username" value={credentials.username} onChange={handleChange}
+                                   label="Enter UserName"/>
+                    </div>
+                    <div style={{display: "flex", flexDirection: "column"}}>
+                        <div style={{
+                            marginRight: "15vw",
+                            fontSize: "20px",
+                            fontWeight: "bold",
+                            marginBottom: "1vh"
+                        }}>password
+                        </div>
+                        <TextField type="password" name="password" value={credentials.password} onChange={handleChange}
+                                   label="Enter password"/>
+                    </div>
+                    <button onClick={handleLogin} style={{width:"15vw",marginTop:"2vh"}}>Login</button>
+                    <div style={{marginTop: "10px"}}> don't have account ? <button onClick={() => {
                         navigate("/signup")
                     }}>Sign UP</button></div>
-                </form>
-            </div>
-        </center>
+                </div>
+            </center>
             {logInStatus ? (
-                <Tooaster key={logInStatus.key} message={logInStatus.msg} />
+                <Tooaster key={logInStatus.key} message={logInStatus.msg}/>
             ) : null}
         </>
     );

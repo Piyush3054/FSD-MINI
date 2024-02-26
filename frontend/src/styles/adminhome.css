@@ -1,7 +1,7 @@
 .queue-view{
         width: 90vw;
         background-color:transparent;
-        box-shadow: 0px 2px 5px rgba(0,0,0,0.9);
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
         border-radius: 5px;
 }
 .admin-outer{

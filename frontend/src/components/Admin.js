@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import Toaster from "./Toaster";
 import Tooaster from "./Tooaster";
+import {TextField} from "@mui/material";
 
 const Admin = () => {
     const navigate = useNavigate();
@@ -59,30 +60,38 @@ const Admin = () => {
         <>
         <center>
             <div className="login-container">
-                <h2>Admin Login</h2>
-                <form onSubmit={handleLogin}>
-                    <table>
-                        <tr>
-                            <td style={{fontSize:"21px",fontWeight:"bold"}}>Username</td>
-                            <td><input type="text" name="username" value={credentials.username}
-                                       onChange={handleChange}/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style={{fontSize:"21px",fontWeight:"bold"}}>Password</td>
-                            <td><input type="password" name="password" value={credentials.password}
-                                       onChange={handleChange}/></td>
-                        </tr>
-                    </table>
-                    <button type="submit">Login</button>
-                </form>
+                <div className="login-container">
+                    <div style={{display: "flex", flexDirection: "column"}}>
+                        <div style={{
+                            marginRight: "15vw",
+                            fontSize: "20px",
+                            fontWeight: "bold",
+                            marginBottom: "1vh"
+                        }}>Username
+                        </div>
+                        <TextField type="text" name="username" value={credentials.username} onChange={handleChange}
+                                   label="Enter AdminName"/>
+                    </div>
+                    <div style={{display: "flex", flexDirection: "column"}}>
+                        <div style={{
+                            marginRight: "15vw",
+                            fontSize: "20px",
+                            fontWeight: "bold",
+                            marginBottom: "1vh"
+                        }}>password
+                        </div>
+                        <TextField type="password" name="password" value={credentials.password} onChange={handleChange}
+                                   label="Enter password"/>
+                    </div>
+                    <button onClick={handleLogin} style={{width: "15vw", marginTop: "2vh"}}>Login</button>
+                </div>
             </div>
         </center>
             {logInStatus ? (
-                <Tooaster key={logInStatus.key} message={logInStatus.msg} />
+                <Tooaster key={logInStatus.key} message={logInStatus.msg}/>
             ) : null}
         </>
-    );
+);
 };
 
 export default Admin;
