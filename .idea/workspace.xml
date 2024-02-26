@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="792be690-47e2-4391-a111-cf7fdb13d103" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Tooaster.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/DefaultPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DefaultPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/DefaultPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/DefaultPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/AdminHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/AdminHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/AdminWelcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/AdminWelcome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/QueueList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/QueueList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Toaster.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Toaster.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +26,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -121,7 +129,12 @@
       <workItem from="1708338730841" duration="5190000" />
       <workItem from="1708344164521" duration="8156000" />
       <workItem from="1708360309160" duration="9176000" />
-      <workItem from="1708403988756" duration="659000" />
+      <workItem from="1708403988756" duration="857000" />
+      <workItem from="1708416467516" duration="2189000" />
+      <workItem from="1708527758738" duration="10053000" />
+      <workItem from="1708779342888" duration="5775000" />
+      <workItem from="1708832395583" duration="6938000" />
+      <workItem from="1708921156165" duration="973000" />
     </task>
     <servers />
   </component>
