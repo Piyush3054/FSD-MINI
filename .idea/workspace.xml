@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="792be690-47e2-4391-a111-cf7fdb13d103" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/AdminHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/AdminHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/AdminWelcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/AdminWelcome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CreateQueue.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CreateQueue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/QueueList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/QueueList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Welcome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/adminwelcome.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/adminwelcome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/welcome.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/welcome.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,33 +44,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.FsdProjectApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/piyus/Downloads/Archive1/frontend/src/Images&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\piyus\\AppData\\Local\\JetBrains\\IntelliJ IDEA 2023.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.FsdProjectApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/piyus/OneDrive/Desktop/Node JS Programs/ipl-win-predector",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\piyus\\AppData\\Local\\JetBrains\\IntelliJ IDEA 2023.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\piyus\Downloads\Archive1\frontend\src\Images" />
@@ -133,7 +125,11 @@
       <workItem from="1708779342888" duration="5775000" />
       <workItem from="1708832395583" duration="6938000" />
       <workItem from="1708921156165" duration="11522000" />
-      <workItem from="1708945067089" duration="2462000" />
+      <workItem from="1708945067089" duration="2830000" />
+      <workItem from="1709010961361" duration="23000" />
+      <workItem from="1709095571774" duration="3000" />
+      <workItem from="1709097645794" duration="204000" />
+      <workItem from="1709100577139" duration="207000" />
     </task>
     <servers />
   </component>
