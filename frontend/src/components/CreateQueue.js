@@ -20,6 +20,9 @@ export default function CreateQueue(){
         if(data.queueName == null && data.queueCapacity == null && data.queueService == null){
             setQueuueStatus({msg:"Fill all field for creating Queue",key:Math.random()});
         }
+        else if(data.queueCapacity == "0"){
+            setQueuueStatus({msg:"Queue Capacity should be greater than 0",key:Math.random()});
+        }
         else {
             try{
                 const res = await fetch('http://localhost:8080/api/createqueue',{
@@ -75,7 +78,7 @@ export default function CreateQueue(){
                         }}>Queue Size
                         </div>
                         <TextField type="number" name="queueCapacity" value={data.queueCapacity} onChange={handleChange}
-                                   label="QueueCapacity" style={{marginBottom:"10px"}}/>
+                                   label="QueueCapacity" inputProps={{ min: 1 }} style={{marginBottom:"10px"}}/>
                     </div>
                     <div style={{display: "flex", flexDirection: "column"}}>
                         <div style={{

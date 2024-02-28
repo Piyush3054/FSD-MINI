@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import '../styles/queuelist.css';
 import Toaster from "./Toaster";
+import Tooaster from "./Tooaster";
 
 export default function QueueList() {
     const [user,setUser] = useState([]);
     const [queues, setQueues] = useState([]);
     const [quserStatus,setQuserStatus] = useState("");
+    const [quuserStatus,setQuuserStatus] = useState("");
     let userName;
 
     useEffect(() => {
@@ -72,7 +74,7 @@ export default function QueueList() {
                 } else {
                     const errorData = await response.json();
                     console.error('Error during Adding user to queue:', errorData.error);
-                    setQuserStatus({msg:"You are already in queue",key:Math.random()});
+                    setQuuserStatus({msg:errorData.error,key:Math.random()});
                 }
             }
             catch (error) {
@@ -135,6 +137,9 @@ export default function QueueList() {
             </div>
             {quserStatus ? (
                 <Toaster key={quserStatus.key} message={quserStatus.msg} />
+            ) : null}
+            {quuserStatus ? (
+                <Tooaster key={quuserStatus.key} message={quuserStatus.msg} />
             ) : null}
         </>
     );
