@@ -43,7 +43,7 @@ public class QueueService {
     public void addUserToQueue(Queue queue, User user) {
         Optional<QueueWithUsers> existingAssociation = queueWithUsersRepository.findByQueueAndUser(queue, user);
         if (existingAssociation.isPresent()) {
-            throw new RuntimeException("User is already in the queue");
+            throw new RuntimeException("You are already in the queue");
         }
         else if (queueWithUsersRepository.countByQueue(queue) < Integer.parseInt(queue.getQueueCapacity())) {
             QueueWithUsers queueWithUsers = new QueueWithUsers(queue, user);
