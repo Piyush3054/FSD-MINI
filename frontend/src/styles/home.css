@@ -5,3 +5,14 @@
     display: flex;
     margin-bottom: 2vh;
 }
+.seperator{
+    background-color: white;
+    color: black;
+}
+.seperator:hover{
+    background-color: rgb(231, 228, 228);
+}
+.separator td{
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}

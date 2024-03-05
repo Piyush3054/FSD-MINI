@@ -67,7 +67,7 @@ function RunningQueues(props) {
                                 <th style={{padding: "12px 15px"}}>Name</th>
                                 <th style={{padding: "12px 15px"}}>Capacity</th>
                                 <th style={{padding: "12px 15px"}}>Service</th>
-                                <th style={{padding: "12px 15px"}}>Action</th>
+                                <th style={{padding: "12px 15px"}}>Remove</th>
                             </tr>
                             </thead>
                             <tbody>

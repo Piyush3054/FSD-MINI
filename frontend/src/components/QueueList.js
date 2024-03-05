@@ -100,22 +100,16 @@ export default function QueueList() {
                                 <th style={{padding: "12px 15px"}}>Name</th>
                                 <th style={{padding: "12px 15px"}}>Capacity</th>
                                 <th style={{padding: "12px 15px"}}>Service</th>
-                                <th style={{padding: "12px 15px"}}>Action</th>
+                                <th style={{padding: "12px 15px"}}>Join Queue</th>
                             </tr>
                             </thead>
                             <tbody>
                             {queues.map(queue => (
-                                <tr key={queue.queueId} style={{backgroundColor: "white", color: "black"}}>
-                                    <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>{queue.queueName}</td>
-                                    <td style={{
-                                        padding: "12px 15px",
-                                        border: "1px solid #ddd"
-                                    }}>{queue.queueCapacity}</td>
-                                    <td style={{
-                                        padding: "12px 15px",
-                                        border: "1px solid #ddd"
-                                    }}>{queue.queueService}</td>
-                                    <td style={{padding: "12px 15px", border: "1px solid #ddd"}}>
+                                <tr key={queue.queueId}  className="separator">
+                                    <td>{queue.queueName}</td>
+                                    <td>{queue.queueCapacity}</td>
+                                    <td>{queue.queueService}</td>
+                                    <td>
                                         <button style={{
                                             backgroundColor: "rgb(226, 83, 69)",
                                             color: "white",

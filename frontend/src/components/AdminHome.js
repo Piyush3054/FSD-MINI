@@ -176,10 +176,10 @@ const AdminHome = () => {
                                             key={user.id}
                                             style={{
                                                 display: "flex",
-                                                backgroundColor: highLightColor.queueId === queueId && highLightColor.userId === user.id ? "rgba(240, 105, 96,0.2)" : highLightedColor.queueId === queueId && highLightedColor.userId === user.id ? "rgba(122, 240, 122,0.2)" : "#181818"
+                                                backgroundColor: highLightColor.queueId === queueId && highLightColor.userId === user.id ? "rgba(240, 105, 96,0.8)" : highLightedColor.queueId === queueId && highLightedColor.userId === user.id ? "rgba(122, 240, 122,0.8)" : "#dedcdc"
                                             }}
                                         >
-                                            <div style={{display: "flex", color: "white", fontSize: "19px",marginRight:"5px",alignSelf:"center"}}>
+                                            <div style={{display: "flex", color: "black",fontWeight:"500", fontSize: "19px",marginRight:"5px",alignSelf:"center"}}>
                                                 <div >Username {user.username}</div>
                                             </div>
                                             <div>

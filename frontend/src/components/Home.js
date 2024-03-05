@@ -105,22 +105,16 @@ export default function Home(){
                                 <th style={{padding: "12px 15px",width:"30px",height:"20px", fontSize: "20px"}}>Name</th>
                                 <th style={{padding: "12px 15px",width:"30px",height:"20px", fontSize: "20px"}}>Capacity</th>
                                 <th style={{padding: "12px 15px",width:"30px",height:"20px", fontSize: "20px"}}>Service</th>
-                                <th style={{padding: "12px 15px",width:"30px",height:"20px", fontSize: "20px"}}>Action</th>
+                                <th style={{padding: "12px 15px",width:"30px",height:"20px", fontSize: "20px"}}>Exit From Queue</th>
                             </tr>
                             </thead>
                             <tbody>
                             {queues.map(queue => (
-                                <tr key={queue.queueId} style={{backgroundColor: "white", color: "black"}}>
-                                    <td style={{padding: "12px 15px",width:"30px",height:"20px", border: "1px solid #ddd"}}>{queue.queueName}</td>
-                                    <td style={{
-                                        padding: "12px 15px",
-                                        border: "1px solid #ddd",width:"30px",height:"20px"
-                                    }}>{queue.queueCapacity}</td>
-                                    <td style={{
-                                        padding: "12px 15px",
-                                        border: "1px solid #ddd",width:"30px",height:"20px"
-                                    }}>{queue.queueService}</td>
-                                    <td style={{padding: "12px 15px",width:"30px",height:"20px", border: "1px solid #ddd"}}>
+                                <tr key={queue.queueId}  className="separator">
+                                    <td>{queue.queueName}</td>
+                                    <td>{queue.queueCapacity}</td>
+                                    <td>{queue.queueService}</td>
+                                    <td>
                                         <button onClick={() => handleRemove(queue.queueId, user.id)} style={{backgroundColor:"black",border:"none",color:"white",padding:"10px",paddingLeft:"25px",paddingRight:"25px",borderRadius:"10px"}}>Exit</button>
                                     </td>
                                 </tr>
