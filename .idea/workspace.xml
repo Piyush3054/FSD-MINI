@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="792be690-47e2-4391-a111-cf7fdb13d103" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/AdminHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/AdminHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/QueueList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/QueueList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/RunningQueues.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/RunningQueues.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/adminhome.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/adminhome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/queuelist.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/queuelist.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CreateQueue.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CreateQueue.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +138,21 @@
       <workItem from="1709465456330" duration="3865000" />
       <workItem from="1709559791521" duration="1877000" />
       <workItem from="1709562447579" duration="268000" />
-      <workItem from="1709615888647" duration="2744000" />
+      <workItem from="1709615888647" duration="2976000" />
+      <workItem from="1709626293139" duration="639000" />
+      <workItem from="1709655540010" duration="520000" />
+      <workItem from="1709730821775" duration="4000" />
+      <workItem from="1709892826496" duration="160000" />
+      <workItem from="1709896522995" duration="335000" />
+      <workItem from="1709904637131" duration="598000" />
+      <workItem from="1709911798844" duration="5514000" />
+      <workItem from="1709967802724" duration="60000" />
+      <workItem from="1709981620555" duration="1227000" />
+      <workItem from="1709986773971" duration="6000" />
+      <workItem from="1710074230958" duration="158000" />
+      <workItem from="1710075390786" duration="499000" />
+      <workItem from="1710085728620" duration="4000" />
+      <workItem from="1710164223943" duration="1169000" />
     </task>
     <servers />
   </component>
