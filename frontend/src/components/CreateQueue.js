@@ -10,6 +10,13 @@ export default function CreateQueue(){
         queueCapacity : null,
         queueService : null,
     });
+    const clearFields = () => {
+        setData({
+            queueName: "",
+            queueCapacity: "",
+            queueService: ""
+        });
+    }
     const [queueStatus,setQueueStatus] = useState("");
     const [queuueStatus,setQueuueStatus] = useState("");
     const handleChange = (e) => {
@@ -37,6 +44,7 @@ export default function CreateQueue(){
                     const responseData = await res.json();
                     console.log(responseData.data);
                     setQueueStatus({msg:"Queue created SuccessFully",key:Math.random()});
+                    clearFields();
                 }
                 else{
                     setQueueStatus({msg:"Queue is not created",key:Math.random()});
@@ -66,7 +74,7 @@ export default function CreateQueue(){
                             marginBottom: "1vh"
                         }}>QueueName
                         </div>
-                        <TextField type="text" name="queueName" value={data.queueName} onChange={handleChange}
+                        <TextField id="id1" type="text" name="queueName" value={data.queueName} onChange={handleChange}
                                    label="QueueName" style={{marginBottom:"10px"}}/>
                     </div>
                     <div style={{display: "flex", flexDirection: "column"}}>
@@ -77,7 +85,7 @@ export default function CreateQueue(){
                             marginBottom: "1vh"
                         }}>Queue Size
                         </div>
-                        <TextField type="number" name="queueCapacity" value={data.queueCapacity} onChange={handleChange}
+                        <TextField id="id2" type="number" name="queueCapacity" value={data.queueCapacity} onChange={handleChange}
                                    label="QueueCapacity" inputProps={{ min: 1 }} style={{marginBottom:"10px"}}/>
                     </div>
                     <div style={{display: "flex", flexDirection: "column"}}>
@@ -88,7 +96,7 @@ export default function CreateQueue(){
                             marginBottom: "1vh"
                         }}>Queue Service
                         </div>
-                        <TextField type="text" name="queueService" value={data.queueService} onChange={handleChange}
+                        <TextField id="id3" type="text" name="queueService" value={data.queueService} onChange={handleChange}
                                    label="QueueService" style={{marginBottom:"10px"}}/>
                     </div>
 
