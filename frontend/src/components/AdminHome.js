@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/adminhome.css'
 import Divider from '@mui/material/Divider';
+import {useNavigate} from "react-router-dom";
 const AdminHome = () => {
+    const navigate = useNavigate();
     const [queuesWithUsers, setQueuesWithUsers] = useState([]);
     const [highLightColor,setHighLightColor] = useState({
         "queueId":null,
@@ -15,6 +17,11 @@ const AdminHome = () => {
     const [queueNames, setQueueNames] = useState({});
 
     useEffect(() => {
+        const token = sessionStorage.getItem('token');
+        if(!token)
+        {
+            navigate("/")
+        }
         fetchQueuesWithUsers();
     }, []);
 
